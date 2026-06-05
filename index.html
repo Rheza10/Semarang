@@ -3,315 +3,241 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portal Analisis Sarana Pendidikan Semarang</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <title>Analisis Sarana Pendidikan Kota Semarang</title>
+    <!-- Menggunakan Font Poppins agar tampilan modern dan bersih -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome untuk ikon pada tombol -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
-        :root {
-            --bg-color: #f4f6f9;
-            --navy-dark: #0f2c59;
-            --navy-light: #1d4ed8;
-            --yellow-accent: #f5b913;
-            --text-dark: #1e293b;
-            --text-light: #ffffff;
-            --card-bg-1: #0d3b66;
-            --card-bg-2: #1e6091;
-        }
-
         * {
-            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Montserrat', sans-serif;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
         }
 
         body {
-            background-color: var(--bg-color);
-            color: var(--text-dark);
+            background: radial-gradient(circle at center, #1a365d 0%, #0a192f 100%);
+            color: #ffffff;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            background-image: radial-gradient(#e2e8f0 1px, transparent 1px);
-            background-size: 20px 20px;
+            padding: 20px;
         }
 
-        /* Top Header Navigation Bar */
+        /* Top Bar / Header Informasi */
         .top-bar {
-            background-color: var(--navy-dark);
-            color: var(--text-light);
-            padding: 12px 40px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            font-size: 0.75rem;
-            letter-spacing: 0.5px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 15px;
+            font-size: 0.85rem;
+            color: #a0aec0;
         }
 
-        .user-admin {
+        .top-bar .user-info {
+            color: #ecc94b; /* Warna emas/kuning sesuai referensi */
             font-weight: 600;
         }
-        .user-admin span {
-            color: var(--yellow-accent);
-        }
 
-        .portal-title-mini {
-            font-weight: 700;
-            text-transform: uppercase;
-        }
-
-        /* Main Hero Section */
-        .hero-container {
-            max-width: 1100px;
-            margin: 40px auto;
-            padding: 0 20px;
+        /* Main Content Container */
+        .main-container {
+            max-width: 800px;
+            margin: auto;
             text-align: center;
+            padding: 40px 10px;
         }
 
-        .main-title {
-            font-size: 2rem;
-            font-weight: 700;
-            color: #000000;
-            line-height: 1.3;
+        .sub-tag {
+            color: #ecc94b;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.9rem;
+            font-weight: 600;
             margin-bottom: 15px;
-            letter-spacing: -0.5px;
+            display: inline-block;
         }
 
-        .subtitle {
-            font-size: 0.95rem;
-            color: #475569;
-            max-width: 750px;
-            margin: 0 auto 40px auto;
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 20px;
+            color: #ffffff;
+        }
+
+        h1 span {
+            color: #ecc94b;
+        }
+
+        .description {
+            color: #cbd5e0;
+            font-size: 1rem;
             line-height: 1.6;
+            margin-bottom: 40px;
+            font-weight: 300;
         }
 
-        /* Cards Grid Dashboard */
-        .dashboard-grid {
+        /* Card Section untuk 2 Pilihan Utama */
+        .selection-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
-            margin-bottom: 50px;
+            grid-template-columns: 1fr;
+            gap: 25px;
+        }
+
+        @media (min-width: 768px) {
+            .selection-grid {
+                grid-template-columns: 1fr 1fr;
+            }
         }
 
         .card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 16px;
-            padding: 30px;
-            color: var(--text-light);
-            text-align: left;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            padding: 30px 20px;
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s ease, border-color 0.3s ease;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            min-height: 340px;
-            transition: transform 0.3s ease;
         }
 
         .card:hover {
             transform: translateY(-5px);
+            border-color: #ecc94b;
+            background: rgba(255, 255, 255, 0.05);
         }
 
-        .card-1 { background-color: var(--card-bg-1); }
-        .card-2 { background-color: var(--card-bg-2); }
-
-        /* Fake Map/Isometric Graphics in Cards */
-        .card::after {
-            content: '';
-            position: absolute;
-            right: -10px;
-            bottom: -10px;
-            width: 180px;
-            height: 180px;
-            opacity: 0.15;
-            background-size: contain;
-            background-repeat: no-repeat;
-            pointer-events: none;
-        }
-        /* Ilustrasi Map Isometris sederhana menggunakan efek linear-gradient */
-        .card-1::after {
-            background-image: linear-gradient(45deg, transparent 50%, #fff 50%), linear-gradient(-45deg, transparent 50%, #fff 50%);
-            border-radius: 50%;
-        }
-
-        .card-tag {
-            font-size: 0.75rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 10px;
-            opacity: 0.9;
-        }
-
-        .card-title {
-            font-size: 1.35rem;
-            font-weight: 700;
-            line-height: 1.3;
+        .card-icon {
+            font-size: 2.5rem;
+            color: #ecc94b;
             margin-bottom: 15px;
-            max-width: 80%;
         }
 
-        .card-desc {
-            font-size: 0.85rem;
-            opacity: 0.85;
+        .card h2 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: #ffffff;
+        }
+
+        .card p {
+            color: #a0aec0;
+            font-size: 0.9rem;
             line-height: 1.5;
             margin-bottom: 30px;
-            max-width: 75%;
+            font-weight: 300;
         }
 
-        /* Action Buttons */
-        .btn-container {
+        /* Style Tombol-Tombol */
+        .btn-group {
             display: flex;
             flex-direction: column;
             gap: 12px;
-            position: relative;
-            z-index: 2;
-            max-width: 240px;
         }
 
         .btn {
-            display: inline-flex;
+            display: flex;
             align-items: center;
-            padding: 12px 18px;
-            border-radius: 25px;
-            font-size: 0.85rem;
+            justify-content: center;
+            gap: 10px;
+            padding: 12px 20px;
+            border-radius: 30px;
+            font-size: 0.95rem;
             font-weight: 600;
             text-decoration: none;
             transition: all 0.2s ease;
             cursor: pointer;
         }
 
-        .btn i {
-            margin-right: 10px;
-            font-size: 1rem;
+        .btn-primary {
+            background-color: #ecc94b;
+            color: #1a202c;
         }
 
-        .btn-yellow {
-            background-color: var(--yellow-accent);
-            color: var(--navy-dark);
-            border: none;
+        .btn-primary:hover {
+            background-color: #d69e2e;
+            box-shadow: 0 4px 15px rgba(236, 201, 75, 0.3);
         }
 
-        .btn-yellow:hover {
-            background-color: #e0a810;
-        }
-
-        .btn-outline {
+        .btn-secondary {
             background-color: transparent;
-            color: var(--text-light);
-            border: 1.5px solid rgba(255, 255, 255, 0.6);
+            color: #ffffff;
+            border: 1.5px solid rgba(255, 255, 255, 0.4);
         }
 
-        .btn-outline:hover {
-            background-color: rgba(255, 255, 255, 0.1);
+        .btn-secondary:hover {
             border-color: #ffffff;
+            background-color: rgba(255, 255, 255, 0.05);
         }
 
-        /* Floating Center Navigation Footer */
-        .bottom-nav-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 25px;
-        }
-
-        .nav-dock {
-            background-color: #ffffff;
-            padding: 10px 20px;
-            border-radius: 30px;
-            display: flex;
-            gap: 25px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            border: 1px solid #e2e8f0;
-        }
-
-        .nav-dock a {
-            color: #94a3b8;
-            font-size: 1.2rem;
-            transition: color 0.2s ease;
-        }
-
-        .nav-dock a:hover, .nav-dock a.active {
-            color: var(--navy-dark);
-        }
-
-        .copyright {
-            font-size: 0.7rem;
-            color: #94a3b8;
-            font-weight: 600;
-        }
-
-        /* Responsive Breakpoints */
-        @media (max-width: 768px) {
-            .top-bar {
-                flex-direction: column;
-                gap: 5px;
-                text-align: center;
-                padding: 10px;
-            }
-            .main-title {
-                font-size: 1.5rem;
-            }
-            .card {
-                min-height: auto;
-            }
-            .card-title, .card-desc {
-                max-width: 100%;
-            }
+        /* Footer */
+        footer {
+            text-align: center;
+            color: #718096;
+            font-size: 0.8rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding-top: 15px;
+            margin-top: 40px;
         }
     </style>
 </head>
 <body>
 
+    <!-- Top Bar Informasi -->
     <div class="top-bar">
-        <div class="user-admin">
-            ADMINISTRASI PENGGUNA: <span>CElla PWK 25 | 05/06/26</span>
+        <div class="user-info">
+            <i class="fa-solid fa-user-grad"></i> Cella PWK 25 | 05/06/26
         </div>
-        <div class="portal-title-mini">
-            Portal Analisis Sarana Pendidikan Semarang
+        <div class="portal-title">
+            PORTAL ANALISIS SPASIAL SEMARANG
         </div>
     </div>
 
-    <div class="hero-container">
-        <h1 class="main-title">
-            ANALISIS AKSESIBILITAS DAN KETERJANGKAUAN<br>SARANA PENDIDIKAN KOTA SEMARANG
-        </h1>
-        <p class="subtitle">
-            Portal analisis spasial untuk mengevaluasi pemerataan dan keterjangkauan layanan pendidikan, mendukung pengambilan keputusan berbasis data geografis di Kota Semarang.
+    <!-- Konten Utama -->
+    <div class="main-container">
+        <span class="sub-tag"><i class="fa-solid fa-map-location-dot"></i> Analisis Spasial Pendidikan</span>
+        <h1>Analisis Aksesibilitas & Keterjangkauan <br><span>Sarana Pendidikan Kota Semarang</span></h1>
+        <p class="description">
+            Visualisasi spasial dan platform pemetaan interaktif untuk mengevaluasi pemerataan, keterjangkauan, serta jangkauan layanan pendidikan guna mendukung pengambilan keputusan berbasis data geografis di Kota Semarang.
         </p>
 
-        <div class="dashboard-grid">
+        <!-- Grid Pilihan Menu -->
+        <div class="selection-grid">
             
-            <div class="card card-1">
+            <!-- Pilihan 1: Aksesibilitas -->
+            <div class="card">
                 <div>
-                    <div class="card-tag">Aksesibilitas</div>
-                    <h2 class="card-title">Aksesibilitas Sarana Pendidikan Kota Semarang</h2>
-                    <p class="card-desc">Visualisasi jangkauan sekolah, waktu tempuh, dan analisis blank spot untuk setiap jenjang pendidikan.</p>
+                    <div class="card-icon"><i class="fa-solid fa-route"></i></div>
+                    <h2>Aksesibilitas Sarana Pendidikan</h2>
+                    <p>Analisis jangkauan jaringan jalan menuju sekolah, visualisasi waktu tempuh, jarak tempuh fisik, serta pemetaan area <i>blank spot</i> untuk setiap jenjang pendidikan.</p>
                 </div>
-                <div class="btn-container">
-                    <a href="#" class="btn btn-yellow">
-                        <i class="fa-solid fa-location-dot"></i> Lihat Peta Aksesibilitas
+                <div class="btn-group">
+                    <a href="https://destanunul0511.github.io/Semarang/#peta" class="btn btn-primary">
+                        <i class="fa-solid fa-map"></i> Lihat Peta Aksesibilitas
                     </a>
-                    <a href="#" class="btn btn-outline">
-                        <i class="fa-solid fa-chart-simple"></i> Pelajari Analisis Aksesibilitas
+                    <a href="https://destanunul0511.github.io/Semarang/#peta" class="btn btn-secondary">
+                        <i class="fa-solid fa-chart-simple"></i> Pelajari Analisis
                     </a>
                 </div>
             </div>
 
-            <div class="card card-2">
+            <!-- Pilihan 2: Keterjangkauan -->
+            <div class="card">
                 <div>
-                    <div class="card-tag">Keterjangkauan</div>
-                    <h2 class="card-title">Keterjangkauan Sarana Pendidikan Kota Semarang</h2>
-                    <p class="card-desc">Analisis faktor biaya, ketersediaan beasiswa, dan disparitas ekonomi terhadap akses pendidikan.</p>
+                    <div class="card-icon"><i class="fa-solid fa-wallet"></i></div>
+                    <h2>Keterjangkauan Sarana Pendidikan</h2>
+                    <p>Analisis faktor finansial, sebaran biaya pendidikan, keterjangkauan ekonomi masyarakat terhadap zonasi sekolah, serta disparitas alokasi sarana pendukung.</p>
                 </div>
-                <div class="btn-container">
-                    <a href="#" class="btn btn-yellow">
-                        <i class="fa-solid fa-sack-dollar"></i> Lihat Peta Keterjangkauan
+                <div class="btn-group">
+                    <a href="#peta-keterjangkauan" class="btn btn-primary">
+                        <i class="fa-solid fa-map"></i> Lihat Peta Keterjangkauan
                     </a>
-                    <a href="#" class="btn btn-outline">
-                        <i class="fa-solid fa-chart-pie"></i> Pelajari Analisis Keterjangkauan
+                    <a href="#analisis-keterjangkauan" class="btn btn-secondary">
+                        <i class="fa-solid fa-chart-simple"></i> Pelajari Analisis
                     </a>
                 </div>
             </div>
@@ -319,16 +245,10 @@
         </div>
     </div>
 
-    <div class="bottom-nav-container">
-        <div class="nav-dock">
-            <a href="#" class="active"><i class="fa-solid fa-house"></i></a>
-            <a href="#"><i class="fa-solid fa-magnifying-glass"></i></a>
-            <a href="#"><i class="fa-solid fa-user"></i></a>
-        </div>
-        <div class="copyright">
-            Cella PWK 25 © 2026
-        </div>
-    </div>
+    <!-- Footer -->
+    <footer>
+        <p> Rheza Ganteng| Sistem Informasi Geografis Kota Semarang</p>
+    </footer>
 
 </body>
 </html>
