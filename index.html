@@ -19,7 +19,7 @@
 
         html {
             scroll-behavior: smooth;
-            scroll-padding-top: 90px; /* Jarak aman agar konten tidak tertutup navbar saat bergeser */
+            scroll-padding-top: 90px;
         }
 
         body {
@@ -58,7 +58,7 @@
         }
 
         .brand-logo span {
-            color: #00f2fe; /* Warna aksen cyan cerah */
+            color: #00f2fe;
         }
 
         .nav-menu {
@@ -280,11 +280,11 @@
 
         @media (min-width: 600px) {
             .stats-grid {
-                grid-template-columns: repeat(2, 1fr); /* Tampilan 2 kolom berdampingan */
+                grid-template-columns: repeat(2, 1fr);
             }
         }
 
-        /* Link Wrapper Kartu agar Bisa Diklik Seluruhnya */
+        /* Link Pembungkus Kartu */
         .stat-card-link {
             text-decoration: none;
             color: inherit;
@@ -295,7 +295,7 @@
             background: rgba(255, 255, 255, 0.03);
             border: 1px solid rgba(255, 255, 255, 0.08);
             border-radius: 16px;
-            padding: 30px 20px;
+            padding: 35px 20px;
             text-align: center;
             transition: all 0.3s ease;
             cursor: pointer;
@@ -303,20 +303,20 @@
 
         .stat-card:hover {
             background: rgba(255, 255, 255, 0.06);
-            border-color: #ecc94b; /* Berubah emas saat diarahkan kursor */
+            border-color: #00f2fe; 
             transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(236, 201, 75, 0.1);
+            box-shadow: 0 5px 15px rgba(0, 242, 254, 0.15);
         }
 
         .stat-card-icon {
             font-size: 2.5rem;
             color: #00f2fe;
-            margin-bottom: 12px;
+            margin-bottom: 15px;
             filter: drop-shadow(0 0 8px rgba(0, 242, 254, 0.4)); 
         }
 
         .stat-number {
-            font-size: 2.8rem;
+            font-size: 3rem;
             font-weight: 700;
             color: #ffffff;
             line-height: 1.1;
@@ -402,9 +402,30 @@
 
         </div>
 
-        <div class="stats-section-title" style="border-left-color: #ecc94b;">Pilihan Peta Interaktif Spasial</div>
+        <div class="stats-section-title">Data Sebaran Sarana Pendidikan (Dashboard)</div>
+        <div class="stats-grid">
+            
+            <a href="peta-negeri.html" class="stat-card-link">
+                <div class="stat-card">
+                    <div class="stat-card-icon"><i class="fa-solid fa-building-columns"></i></div>
+                    <div class="stat-number">17</div>
+                    <div class="stat-label">Total SMA / SMK Negeri</div>
+                </div>
+            </a>
+
+            <a href="peta-swasta.html" class="stat-card-link">
+                <div class="stat-card">
+                    <div class="stat-card-icon"><i class="fa-solid fa-school"></i></div>
+                    <div class="stat-number">56</div>
+                    <div class="stat-label">Total SMA / SMK Swasta</div>
+                </div>
+            </a>
+
+        </div>
+
+        <div id="peta-section" class="stats-section-title" style="border-left-color: #ecc94b;">Pilihan Peta Interaktif Spasial</div>
         
-        <div id="peta-section" class="selection-grid">
+        <div class="selection-grid">
             <div class="card">
                 <div>
                     <div class="card-icon"><i class="fa-solid fa-route"></i></div>
@@ -431,57 +452,3 @@
                     <a href="#peta-keterjangkauan" class="btn btn-primary">
                         <i class="fa-solid fa-money-bill-wave"></i> Lihat Peta Keterjangkauan
                     </a>
-                    <a href="#metodologi-section" class="btn btn-secondary">
-                        <i class="fa-solid fa-chart-pie"></i> Pelajari Metodologi
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <div class="stats-section-title">Data Sebaran Sarana Pendidikan (Dashboard)</div>
-        <div class="stats-grid">
-            
-            <a href="#peta-section" class="stat-card-link">
-                <div class="stat-card">
-                    <div class="stat-card-icon"><i class="fa-solid fa-building-columns"></i></div>
-                    <div class="stat-number">17</div>
-                    <div class="stat-label">Total SMA / SMK Negeri</div>
-                </div>
-            </a>
-
-            <a href="file:///C:/Users/lapto/Downloads/FOTO%20SEKOLAH-20260605T125133Z-3-001/qgis2web_2026_06_05-20_44_02_232789/index.html#12/-7.0232/110.4335" class="stat-card-link">
-                <div class="stat-card">
-                    <div class="stat-card-icon"><i class="fa-solid fa-school"></i></div>
-                    <div class="stat-number">56</div>
-                    <div class="stat-label">Total SMA / SMK Swasta</div>
-                </div>
-            </a>
-
-        </div>
-
-        <div id="analisis-section" class="report-section">
-            
-            <div class="report-block">
-                <h3><i class="fa-solid fa-square-poll-vertical"></i> Kesimpulan Analisis</h3>
-                <p>
-                    Berdasarkan hasil pemetaan spasial, dapat disimpulkan bahwa wilayah pusat Kota Semarang memiliki tingkat aksesibilitas dan keterjangkauan sarana pendidikan yang sangat tinggi. Sebaliknya, wilayah pinggiran kota masih menghadapi tantangan berupa keterbatasan pilihan sekolah publik...
-                </p>
-            </div>
-
-            <div class="report-block">
-                <h3><i class="fa-solid fa-lightbulb"></i> Saran & Rekomendasi Perencanaan</h3>
-                <p>
-                    Sebagai upaya mengoptimalkan pelayanan sarana pendidikan di Kota Semarang, dirumuskan rekomendasi berupa prioritas pembangunan ruang kelas baru (RKB) khusus di kawasan teridentifikasi <i>blank spot</i> tinggi serta pemetaan rute transportasi sekolah gratis.
-                </p>
-            </div>
-
-        </div>
-
-    </div>
-
-    <footer>
-        <p>Perencanaan Wilayah dan Kota</p>
-    </footer>
-
-</body>
-</html>
