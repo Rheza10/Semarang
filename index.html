@@ -82,7 +82,7 @@
         /* MAIN CONTAINER */
         .main-container {
             max-width: 1000px;
-            margin: 110px auto auto auto; /* Jarak pasca penyesuaian posisi navbar */
+            margin: 110px auto auto auto;
             text-align: center;
             padding: 40px 20px;
         }
@@ -273,41 +273,50 @@
 
         .stats-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: 1fr;
             gap: 20px;
             margin-bottom: 60px;
         }
 
-        @media (min-width: 900px) {
+        @media (min-width: 600px) {
             .stats-grid {
-                grid-template-columns: repeat(4, 1fr);
+                grid-template-columns: repeat(2, 1fr); /* Tampilan 2 kolom berdampingan */
             }
+        }
+
+        /* Link Wrapper Kartu agar Bisa Diklik Seluruhnya */
+        .stat-card-link {
+            text-decoration: none;
+            color: inherit;
+            display: block;
         }
 
         .stat-card {
             background: rgba(255, 255, 255, 0.03);
             border: 1px solid rgba(255, 255, 255, 0.08);
             border-radius: 16px;
-            padding: 25px 15px;
+            padding: 30px 20px;
             text-align: center;
             transition: all 0.3s ease;
+            cursor: pointer;
         }
 
         .stat-card:hover {
             background: rgba(255, 255, 255, 0.06);
-            border-color: rgba(0, 242, 254, 0.4);
-            box-shadow: 0 0 15px rgba(0, 242, 254, 0.1);
+            border-color: #ecc94b; /* Berubah emas saat diarahkan kursor */
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(236, 201, 75, 0.1);
         }
 
         .stat-card-icon {
-            font-size: 2.2rem;
+            font-size: 2.5rem;
             color: #00f2fe;
             margin-bottom: 12px;
-            filter: drop-shadow(0 0 8px rgba(0, 242, 254, 0.6)); 
+            filter: drop-shadow(0 0 8px rgba(0, 242, 254, 0.4)); 
         }
 
         .stat-number {
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             font-weight: 700;
             color: #ffffff;
             line-height: 1.1;
@@ -315,9 +324,9 @@
         }
 
         .stat-label {
-            color: #a0aec0;
-            font-size: 0.8rem;
-            font-weight: 400;
+            color: #cbd5e0;
+            font-size: 0.95rem;
+            font-weight: 500;
         }
 
         /* RESPONSIVITAS DEVICE KECIL (HP) */
@@ -419,7 +428,7 @@
                     <p>Analisis faktor biaya, ketersediaan beasiswa, dan disparitas ekonomi terhadap akses pendidikan.</p>
                 </div>
                 <div class="btn-group">
-                    <a href="#peta-keterjangawat" class="btn btn-primary">
+                    <a href="#peta-keterjangkauan" class="btn btn-primary">
                         <i class="fa-solid fa-money-bill-wave"></i> Lihat Peta Keterjangkauan
                     </a>
                     <a href="#metodologi-section" class="btn btn-secondary">
@@ -431,26 +440,23 @@
 
         <div class="stats-section-title">Data Sebaran Sarana Pendidikan (Dashboard)</div>
         <div class="stats-grid">
-            <div class="stat-card">
-                <div class="stat-card-icon"><i class="fa-solid fa-school"></i></div>
-                <div class="stat-number">16</div>
-                <div class="stat-label">Total SMA Negeri</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-card-icon"><i class="fa-solid fa-building-columns"></i></div>
-                <div class="stat-number">64</div>
-                <div class="stat-label">Total SMA Swasta</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-card-icon"><i class="fa-solid fa-gears"></i></div>
-                <div class="stat-number">12</div>
-                <div class="stat-label">Total SMK Negeri</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-card-icon"><i class="fa-solid fa-screwdriver-wrench"></i></div>
-                <div class="stat-number">48</div>
-                <div class="stat-label">Total SMK Swasta</div>
-            </div>
+            
+            <a href="#peta-section" class="stat-card-link">
+                <div class="stat-card">
+                    <div class="stat-card-icon"><i class="fa-solid fa-building-columns"></i></div>
+                    <div class="stat-number">17</div>
+                    <div class="stat-label">Total SMA / SMK Negeri</div>
+                </div>
+            </a>
+
+            <a href="#analisis-section" class="stat-card-link">
+                <div class="stat-card">
+                    <div class="stat-card-icon"><i class="fa-solid fa-school"></i></div>
+                    <div class="stat-number">56</div>
+                    <div class="stat-label">Total SMA / SMK Swasta</div>
+                </div>
+            </a>
+
         </div>
 
         <div id="analisis-section" class="report-section">
@@ -458,7 +464,7 @@
             <div class="report-block">
                 <h3><i class="fa-solid fa-square-poll-vertical"></i> Kesimpulan Analisis</h3>
                 <p>
-                    Berdasarkan hasil pemetaan spasial, dapat disimpulkan bahwa wilayah pusat Kota Semarang memiliki tingkat aksesibilitas and keterjangkauan sarana pendidikan yang sangat tinggi. Sebaliknya, wilayah pinggiran kota masih menghadapi tantangan berupa keterbatasan pilihan sekolah publik...
+                    Berdasarkan hasil pemetaan spasial, dapat disimpulkan bahwa wilayah pusat Kota Semarang memiliki tingkat aksesibilitas dan keterjangkauan sarana pendidikan yang sangat tinggi. Sebaliknya, wilayah pinggiran kota masih menghadapi tantangan berupa keterbatasan pilihan sekolah publik...
                 </p>
             </div>
 
@@ -474,7 +480,7 @@
     </div>
 
     <footer>
-        <p> Perencanaan Wilayah dan Kota</p>
+        <p>Perencanaan Wilayah dan Kota</p>
     </footer>
 
 </body>
