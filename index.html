@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Analisis Sarana Pendidikan Kota Semarang</title>
     
-    <!-- Google Fonts & FontAwesome Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -18,6 +17,12 @@
             font-family: 'Poppins', sans-serif;
         }
 
+        /* Efek geser halus saat menu navigasi diklik */
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 90px; /* Biar konten tidak tertutup navbar saat bergeser */
+        }
+
         body {
             background-color: #0a192f;
             background: radial-gradient(circle at center, #1a365d 0%, #0a192f 100%);
@@ -25,11 +30,57 @@
             min-height: 100vh;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
-            padding: 20px;
+            padding: 0;
         }
 
-        /* TOP BAR */
+        /* ================= STYLE BARU: NAVBAR (NAVIGASI ATAS) ================= */
+        .navbar {
+            background-color: #0a192f;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 15px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed; /* Menempel di atas saat di-scroll */
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        .brand-logo {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .brand-logo span {
+            color: #00f2fe; /* Warna cyan cerah sesuai acuan WebGIS Pendidikan */
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        .nav-menu a {
+            color: #cbd5e0;
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 400;
+            transition: color 0.2s ease;
+        }
+
+        .nav-menu a:hover, .nav-menu a.active {
+            color: #00f2fe; /* Berubah jadi cyan saat diarahkan kursor */
+        }
+
+        /* TOP BAR INFO (Diturunkan sedikit agar tidak tertutup navbar) */
         .top-bar {
             display: flex;
             justify-content: space-between;
@@ -38,6 +89,9 @@
             padding-bottom: 15px;
             font-size: 0.85rem;
             color: #a0aec0;
+            margin-top: 90px; /* Jarak penyesuaian dari posisi fixed navbar */
+            padding-left: 20px;
+            padding-right: 20px;
         }
 
         .top-bar .user-info {
@@ -47,10 +101,10 @@
 
         /* MAIN CONTAINER */
         .main-container {
-            max-width: 900px;
+            max-width: 1000px;
             margin: auto;
             text-align: center;
-            padding: 40px 10px;
+            padding: 40px 20px;
         }
 
         .sub-tag {
@@ -88,7 +142,7 @@
             display: grid;
             grid-template-columns: 1fr;
             gap: 25px;
-            margin-bottom: 60px; /* Jarak menuju konten teks */
+            margin-bottom: 60px;
         }
 
         @media (min-width: 768px) {
@@ -106,7 +160,6 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            text-align: center;
         }
 
         .card:hover {
@@ -175,14 +228,73 @@
             background-color: rgba(255, 255, 255, 0.05);
         }
 
-        /* DOKUMENTASI LAPORAN SECTION (Latar Belakang, Metode, dsb) */
+        /* STATISTIK VISUALISASI */
+        .stats-section-title {
+            text-align: left;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #ffffff;
+            border-left: 4px solid #00f2fe;
+            padding-left: 12px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-bottom: 60px;
+        }
+
+        @media (min-width: 900px) {
+            .stats-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 25px 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            background: rgba(255, 255, 255, 0.06);
+            border-color: rgba(0, 242, 254, 0.4);
+            box-shadow: 0 0 15px rgba(0, 242, 254, 0.1);
+        }
+
+        .stat-card-icon {
+            font-size: 2.2rem;
+            color: #00f2fe;
+            margin-bottom: 12px;
+            filter: drop-shadow(0 0 8px rgba(0, 242, 254, 0.6)); 
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #ffffff;
+            line-height: 1.1;
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            color: #a0aec0;
+            font-size: 0.8rem;
+            font-weight: 400;
+        }
+
+        /* DOKUMENTASI LAPORAN SECTION */
         .report-section {
             text-align: left;
             background: rgba(255, 255, 255, 0.02);
             border: 1px solid rgba(255, 255, 255, 0.05);
             border-radius: 16px;
             padding: 40px;
-            margin-top: 20px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.2);
         }
 
@@ -203,6 +315,14 @@
             gap: 10px;
             border-bottom: 1px solid rgba(236, 201, 75, 0.2);
             padding-bottom: 5px;
+        }
+
+        /* Judul bagian yang memiliki garis bawah biru cyan tebal khas WebGIS */
+        .report-block h3.gis-title {
+            border-bottom: 3px solid #00f2fe;
+            display: inline-block;
+            padding-bottom: 3px;
+            margin-bottom: 15px;
         }
 
         .report-block p {
@@ -226,6 +346,21 @@
             margin-bottom: 8px;
         }
 
+        /* Responsivitas Navbar untuk HP */
+        @media (max-width: 600px) {
+            .navbar {
+                flex-direction: column;
+                gap: 10px;
+                padding: 10px;
+            }
+            .nav-menu {
+                gap: 12px;
+            }
+            .nav-menu a {
+                font-size: 0.8rem;
+            }
+        }
+
         /* FOOTER */
         footer {
             text-align: center;
@@ -239,54 +374,36 @@
 </head>
 <body>
 
-    <!-- Header / Top Bar -->
+    <nav class="navbar">
+        <div class="brand-logo">
+            <i class="fa-solid fa-graduation-cap"></i> WebGIS <span>Pendidikan</span>
+        </div>
+        <ul class="nav-menu">
+            <li><a href="#" class="active">Beranda</a></li>
+            <li><a href="#peta-section">Peta Interaktif</a></li>
+            <li><a href="#dashboard-section">Dashboard</a></li>
+            <li><a href="#metodologi-section">Metodologi</a></li>
+            <li><a href="#analisis-section">Analisis</a></li>
+        </ul>
+    </nav>
+
     <div class="top-bar">
         <div class="user-info">
-            <i class="fa-solid fa-user-graduate"></i> Rheza Ganteng Banget
+            <i class="fa-solid fa-user-graduate"></i> Cella PWK 25 | 05/06/26
         </div>
         <div class="portal-title">
             PORTAL ANALISIS SARANA PENDIDIKAN SEMARANG
         </div>
     </div>
 
-    <!-- Konten Utama -->
     <div class="main-container">
         <span class="sub-tag"><i class="fa-solid fa-map-location-dot"></i> Web-Semarang</span>
         <h1>Analisis Aksesibilitas & Keterjangkauan <br><span>Sarana Pendidikan Kota Semarang</span></h1>
         <p class="description">
             Portal analisis spasial untuk mengevaluasi pemerataan dan keterjangkauan layanan pendidikan, mendukung pengambilan keputusan berbasis data geografis di Kota Semarang.
         </p>
-        
-     <!-- ================= SECTION TAMBAHAN: DOKUMENTASI LAPORAN ================= -->    
-     <div class="report-section">
-     
-                    <!-- Latar Belakang -->
-            <div class="report-block">
-                <h3><i class="fa-solid fa-book-open"></i> Latar Belakang</h3>
-                <p>
-                    Pendidikan merupakan salah satu pilar krusial dalam pembangunan wilayah berkelanjutan. Kota Semarang sebagai pusat kegiatan ekonomi di Jawa Tengah terus mengalami pertumbuhan penduduk yang berimplikasi pada meningkatnya kebutuhan sarana pendidikan. Namun, distribusi sarana pendidikan sering kali dihadapkan pada masalah ketidakmerataan. Ketidakmerataan ini ditinjau dari dua aspek utama: kendala fisik geografis (aksesibilitas) seperti jarak tempuh dan jaringan jalan, serta kendala sosial-ekonomi (keterjangkauan) seperti biaya pendidikan dan tingkat pendapatan masyarakat. Oleh karena itu, diperlukan kajian spasial komprehensif untuk memetakan kondisi riil pelayanan pendidikan di Kota Semarang.
-                </p>
-            </div>
 
-            <!-- Metode Analisis -->
-            <div class="report-block">
-                <h3><i class="fa-solid fa-gears"></i> Metode Analisis</h3>
-                <p>
-                    Penelitian ini memanfaatkan pendekatan Sistem Informasi Geografis (SIG) berbasis spasial dengan metode pengolahan data sebagai berikut:
-                </p>
-                <ul>
-                    <li><strong>Analisis Network Analysis (Service Area):</strong> Digunakan untuk memodelkan batas cakupan jangkauan fisik sarana pendidikan berdasarkan parameter jarak fisik dan proyeksi waktu tempuh riil melalui jaringan jalan.</li>
-                    <li><strong>Analisis Buffer & Overlay:</strong> Digunakan untuk mendeteksi wilayah yang mengalami <i>blank spot</i> atau tidak terlayani oleh fasilitas pendidikan eksisting.</li>
-                    <li><strong>Analisis Deskriptif Kuantitatif & Spatial Link:</strong> Mengintegrasikan data non-spasial (disparitas ekonomi, biaya sekolah, klasifikasi pendapatan wilayah) dengan data spasial lokasi sarana pendidikan guna menilai tingkat keterjangkauan finansial masyarakat sekitar.</li>
-                </ul>
-            </div>
-         <!-- ================= END OF SECTION ================= -->
-
-        <!-- ================= SECTION TAMBAHAN: DOKUMENTASI LAPORAN ================= -->
-        <!-- Pilihan Utama (Grid Peta) -->
-        <div class="selection-grid">
-            
-            <!-- Menu 1 -->
+        <div id="peta-section" class="selection-grid">
             <div class="card">
                 <div>
                     <div class="card-icon"><i class="fa-solid fa-route"></i></div>
@@ -297,13 +414,12 @@
                     <a href="#peta-aksesibilitas" class="btn btn-primary">
                         <i class="fa-solid fa-location-dot"></i> Lihat Peta Aksesibilitas
                     </a>
-                    <a href="#analisis-aksesibilitas" class="btn btn-secondary">
+                    <a href="#metodologi-section" class="btn btn-secondary">
                         <i class="fa-solid fa-chart-line"></i> Pelajari Analisis Aksesibilitas
                     </a>
                 </div>
             </div>
 
-            <!-- Menu 2 -->
             <div class="card">
                 <div>
                     <div class="card-icon"><i class="fa-solid fa-wallet"></i></div>
@@ -314,47 +430,77 @@
                     <a href="#peta-keterjangkauan" class="btn btn-primary">
                         <i class="fa-solid fa-money-bill-wave"></i> Lihat Peta Keterjangkauan
                     </a>
-                    <a href="#analisis-keterjangkauan" class="btn btn-secondary">
+                    <a href="#metodologi-section" class="btn btn-secondary">
                         <i class="fa-solid fa-chart-pie"></i> Pelajari Analisis Keterjangkauan
                     </a>
                 </div>
             </div>
-
         </div>
 
-        <!-- ================= SECTION TAMBAHAN: DOKUMENTASI LAPORAN ================= -->
+        <div id="dashboard-section" class="stats-section-title">Data Sebaran Sarana Pendidikan</div>
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-card-icon"><i class="fa-solid fa-school"></i></div>
+                <div class="stat-number">16</div>
+                <div class="stat-label">Total SMA Negeri</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-card-icon"><i class="fa-solid fa-building-columns"></i></div>
+                <div class="stat-number">64</div>
+                <div class="stat-label">Total SMA Swasta</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-card-icon"><i class="fa-solid fa-gears"></i></div>
+                <div class="stat-number">12</div>
+                <div class="stat-label">Total SMK Negeri</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-card-icon"><i class="fa-solid fa-screwdriver-wrench"></i></div>
+                <div class="stat-number">48</div>
+                <div class="stat-label">Total SMK Swasta</div>
+            </div>
+        </div>
+
         <div class="report-section">
             
-
-            <!-- Kesimpulan -->
             <div class="report-block">
-                <h3><i class="fa-solid fa-square-poll-vertical"></i> Kesimpulan</h3>
+                <h3><i class="fa-solid fa-book-open"></i> Latar Belakang</h3>
                 <p>
-                    Berdasarkan hasil pemetaan spasial, dapat disimpulkan bahwa wilayah pusat Kota Semarang memiliki tingkat aksesibilitas dan keterjangkauan sarana pendidikan yang sangat tinggi. Sebaliknya, wilayah pinggiran kota (perbatasan) masih menghadapi tantangan berupa keterbatasan pilihan sekolah publik, waktu tempuh yang panjang karena kendala geomorfologi wilayah, serta kesenjangan keterjangkauan ekonomi masyarakat terhadap persebaran fasilitas sekolah swasta berkualitas tinggi.
+                    Pendidikan merupakan salah satu pilar krusial dalam pembangunan wilayah berkelanjutan. Kota Semarang sebagai pusat kegiatan ekonomi di Jawa Tengah terus mengalami pertumbuhan penduduk yang berimplikasi pada meningkatnya kebutuhan sarana pendidikan...
                 </p>
             </div>
 
-            <!-- Saran & Rekomendasi -->
-            <div class="report-block">
-                <h3><i class="fa-solid fa-lightbulb"></i> Saran & Rekomendasi</h3>
+            <div id="metodologi-section" class="report-block">
+                <h3 class="gis-title"><i class="fa-solid fa-gears"></i> Metodologi Pemrosesan Spasial</h3>
                 <p>
-                    Sebagai upaya mengoptimalkan pelayanan sarana pendidikan di Kota Semarang, dirumuskan beberapa rekomendasi perencanaan:
+                    Penelitian ini memanfaatkan pendekatan Sistem Informasi Geografis (SIG) berbasis spasial dengan metode pengolahan data sebagai berikut:
                 </p>
                 <ul>
-                    <li><strong>Pemerintah Kota Semarang:</strong> Perlu diprioritaskan pembangunan ruang kelas baru (RKB) atau sekolah negeri baru khusus di kawasan teridentifikasi <i>blank spot</i> tinggi pada analisis aksesibilitas.</li>
-                    <li><strong>Sektor Transportasi:</strong> Penyediaan rute transportasi publik sekolah gratis terintegrasi untuk memangkas hambatan waktu tempuh siswa dari wilayah sub-urban.</li>
-                    <li><strong>Kebijakan Finansial:</strong> Optimalisasi pemerataan bantuan dana pendidikan (beasiswa) yang disasarkan secara spasial pada wilayah-wilayah dengan indeks keterjangkauan ekonomi rendah.</li>
+                    <li><strong>Analisis Network Analysis (Service Area):</strong> Memodelkan batas cakupan jangkauan fisik sarana pendidikan berdasarkan parameter jaringan jalan.</li>
+                    <li><strong>Analisis Buffer & Overlay:</strong> Mendeteksi wilayah yang mengalami <i>blank spot</i> pelayanan pendidikan di Kota Semarang.</li>
                 </ul>
             </div>
 
+            <div id="analisis-section" class="report-block">
+                <h3><i class="fa-solid fa-square-poll-vertical"></i> Kesimpulan Analisis</h3>
+                <p>
+                    Berdasarkan hasil pemetaan spasial, dapat disimpulkan bahwa wilayah pusat Kota Semarang memiliki tingkat aksesibilitas dan keterjangkauan sarana pendidikan yang sangat tinggi. Sebaliknya, wilayah pinggiran kota masih menghadapi tantangan berupa keterbatasan pilihan sekolah publik...
+                </p>
+            </div>
+
+            <div class="report-block">
+                <h3><i class="fa-solid fa-lightbulb"></i> Saran & Rekomendasi Perencanaan</h3>
+                <p>
+                    Sebagai upaya mengoptimalkan pelayanan sarana pendidikan di Kota Semarang, dirumuskan rekomendasi berupa prioritas pembangunan ruang kelas baru (RKB) khusus di kawasan teridentifikasi <i>blank spot</i> tinggi serta pemetaan rute transportasi sekolah gratis.
+                </p>
+            </div>
+
         </div>
-        <!-- ================= END OF SECTION ================= -->
 
     </div>
 
-    <!-- Footer -->
     <footer>
-        <p>Rheza Ganteng Banget | Perencanaan Wilayah dan Kota</p>
+        <p>Cella PWK 25 &copy; 2026 | Perencanaan Wilayah dan Kota</p>
     </footer>
 
 </body>
