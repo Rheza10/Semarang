@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Analisis Sarana Pendidikan Kota Semarang</title>
     
+    <!-- Google Fonts & FontAwesome Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -257,6 +258,7 @@
             display: flex;
             align-items: center;
             gap: 12px;
+            scroll-margin-top: 100px;
         }
 
         .stats-section-title::before {
@@ -278,7 +280,7 @@
 
         @media (min-width: 600px) {
             .stats-grid {
-                grid-template-columns: repeat(2, 1fr);
+                grid-template-columns: repeat(3, 1fr); /* Berubah menjadi 3 kolom agar makin proporsional */
             }
         }
 
@@ -298,6 +300,7 @@
             position: relative;
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0,0,0,0.01);
+            height: 100%;
         }
 
         .stat-card::before {
@@ -474,6 +477,9 @@
             .report-section {
                 padding: 30px 20px;
             }
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         /* FOOTER DEKORATIF */
@@ -504,6 +510,7 @@
 </head>
 <body>
 
+    <!-- NAVBAR ATAS -->
     <nav class="navbar">
         <div class="brand-logo">
             <i class="fa-solid fa-map-marked-alt"></i> WebGIS <span>Pendidikan</span>
@@ -512,11 +519,13 @@
             <li><a href="#" class="active">Beranda</a></li>
             <li><a href="#latar-belakang-section">Latar Belakang</a></li>
             <li><a href="#metodologi-section">Metodologi</a></li>
+            <li><a href="#dashboard-section">Dashboard Sebaran</a></li>
             <li><a href="#peta-section">Peta Interaktif</a></li>
             <li><a href="#analisis-section">Analisis</a></li>
         </ul>
     </nav>
 
+    <!-- HERO HEADER BANNER -->
     <header class="hero-section">
         <div class="hero-content">
             <span class="sub-tag"><i class="fa-solid fa-compass-drafting"></i> Spasial Kota Semarang</span>
@@ -527,10 +536,13 @@
         </div>
     </header>
 
+    <!-- WADAH UTAMA KONTEN -->
     <div class="main-container">
         
+        <!-- BAGIAN LAPORAN / DOKUMENTASI -->
         <div class="report-section">
             
+            <!-- Latar Belakang -->
             <div id="latar-belakang-section" class="report-block">
                 <h3><i class="fa-solid fa-feather-pointed"></i> Latar Belakang Wilayah</h3>
                 <p>
@@ -538,6 +550,7 @@
                 </p>
             </div>
 
+            <!-- Metodologi -->
             <div id="metodologi-section" class="report-block">
                 <h3><i class="fa-solid fa-layer-group"></i> Metodologi Pemrosesan Spasial</h3>
                 <p>
@@ -551,9 +564,11 @@
 
         </div>
 
-        <div class="stats-section-title">Dashboard Sebaran Sarana Pendidikan</div>
+        <!-- DASHBOARD STATISTIK UTAMA -->
+        <div id="dashboard-section" class="stats-section-title">Dashboard Sebaran Sarana Pendidikan</div>
         <div class="stats-grid">
             
+            <!-- Kartu Jaringan SMA/K Negeri -->
             <a href="peta-negeri.html" class="stat-card-link">
                 <div class="stat-card">
                     <div class="stat-card-icon"><i class="fa-solid fa-landmark-flag"></i></div>
@@ -562,6 +577,7 @@
                 </div>
             </a>
 
+            <!-- Kartu Jaringan SMA/K Swasta -->
             <a href="https://rheza10.github.io/sma-swata/#12/-6.9953/110.4219" class="stat-card-link">
                 <div class="stat-card">
                     <div class="stat-card-icon"><i class="fa-solid fa-school-flag"></i></div>
@@ -570,11 +586,22 @@
                 </div>
             </a>
 
+            <!-- Kartu Jaringan Gabungan (Tambahan Baru) -->
+            <a href="#peta-section" class="stat-card-link">
+                <div class="stat-card">
+                    <div class="stat-card-icon"><i class="fa-solid fa-hospital-user"></i></div>
+                    <div class="stat-number">73</div>
+                    <div class="stat-label">Total Sarana Terdata</div>
+                </div>
+            </a>
+
         </div>
 
+        <!-- PILIHAN PETA INTERAKTIF -->
         <div id="peta-section" class="stats-section-title">Eksplorasi Peta Interaktif</div>
         
         <div class="selection-grid">
+            <!-- Peta Model Aksesibilitas -->
             <div class="card">
                 <div class="card-top-content">
                     <div class="card-icon"><i class="fa-solid fa-map-location-dot"></i></div>
@@ -591,6 +618,7 @@
                 </div>
             </div>
 
+            <!-- Peta Model Keterjangkauan -->
             <div class="card">
                 <div class="card-top-content">
                     <div class="card-icon"><i class="fa-solid fa-hand-holding-dollar"></i></div>
@@ -608,6 +636,7 @@
             </div>
         </div>
 
+        <!-- KELOMPOK OUTPUT ANALISIS -->
         <div id="analisis-section" class="report-section">
             
             <div class="report-block">
@@ -628,6 +657,7 @@
 
     </div>
 
+    <!-- FOOTER -->
     <footer>
         <p class="credits">RHEZA GANTENG BANGETTTTTTTTTT</p>
         <p>Laboratorium Pengembangan GIS & Perencanaan Wilayah dan Kota | &copy; 2026</p>
