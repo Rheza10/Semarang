@@ -17,10 +17,9 @@
             font-family: 'Poppins', sans-serif;
         }
 
-        /* Efek geser halus saat menu navigasi diklik */
         html {
             scroll-behavior: smooth;
-            scroll-padding-top: 90px; /* Jarak agar konten tidak tertutup navbar saat bergeser */
+            scroll-padding-top: 90px; /* Jarak aman agar konten tidak tertutup navbar saat bergeser */
         }
 
         body {
@@ -33,7 +32,7 @@
             padding: 0;
         }
 
-        /* ================= NAVBAR (NAVIGASI ATAS) ================= */
+        /* NAVBAR (NAVIGASI ATAS) */
         .navbar {
             background-color: #0a192f;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
@@ -41,7 +40,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            position: fixed; /* Tetap menempel di atas layar */
+            position: fixed;
             top: 0;
             left: 0;
             width: 100%;
@@ -80,10 +79,10 @@
             color: #00f2fe;
         }
 
-        /* MAIN CONTAINER (Diberi margin-top agar tidak tertutup Navbar Fixed) */
+        /* MAIN CONTAINER */
         .main-container {
             max-width: 1000px;
-            margin: 110px auto auto auto; /* Jarak aman dari batas atas navbar */
+            margin: 110px auto auto auto; /* Jarak pasca penyesuaian posisi navbar */
             text-align: center;
             padding: 40px 20px;
         }
@@ -114,11 +113,70 @@
             color: #cbd5e0;
             font-size: 1rem;
             line-height: 1.6;
-            margin-bottom: 40px;
+            margin-bottom: 50px;
             font-weight: 300;
         }
 
-        /* GRID & CARDS (MENU PETA) */
+        /* REPORT/DOKUMENTASI BOX */
+        .report-section {
+            text-align: left;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            margin-bottom: 50px;
+        }
+
+        .report-block {
+            margin-bottom: 40px;
+        }
+
+        .report-block:last-child {
+            margin-bottom: 0;
+        }
+
+        .report-block h3 {
+            font-size: 1.4rem;
+            color: #ecc94b;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 1px solid rgba(236, 201, 75, 0.2);
+            padding-bottom: 5px;
+        }
+
+        /* Judul khas WebGIS dengan garis bawah cyan tebal */
+        .report-block h3.gis-title {
+            border-bottom: 3px solid #00f2fe;
+            display: inline-block;
+            padding-bottom: 3px;
+            margin-bottom: 15px;
+        }
+
+        .report-block p {
+            color: #cbd5e0;
+            font-size: 0.95rem;
+            line-height: 1.7;
+            font-weight: 300;
+            text-align: justify;
+        }
+
+        .report-block ul {
+            margin-top: 10px;
+            margin-left: 20px;
+            color: #cbd5e0;
+            font-size: 0.95rem;
+            line-height: 1.7;
+            font-weight: 300;
+        }
+
+        .report-block li {
+            margin-bottom: 8px;
+        }
+
+        /* GRID PETA INTERAKTIF */
         .selection-grid {
             display: grid;
             grid-template-columns: 1fr;
@@ -141,6 +199,7 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            text-align: center;
         }
 
         .card:hover {
@@ -209,7 +268,7 @@
             background-color: rgba(255, 255, 255, 0.05);
         }
 
-        /* STATISTIK SEBARAN DATA */
+        /* DASHBOARD / STATISTIK */
         .stats-section-title {
             text-align: left;
             font-size: 1.5rem;
@@ -269,65 +328,7 @@
             font-weight: 400;
         }
 
-        /* REPORT/ARTIKEL SECTION */
-        .report-section {
-            text-align: left;
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: 16px;
-            padding: 40px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-        }
-
-        .report-block {
-            margin-bottom: 35px;
-        }
-
-        .report-block:last-child {
-            margin-bottom: 0;
-        }
-
-        .report-block h3 {
-            font-size: 1.4rem;
-            color: #ecc94b;
-            margin-bottom: 12px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            border-bottom: 1px solid rgba(236, 201, 75, 0.2);
-            padding-bottom: 5px;
-        }
-
-        /* Garis bawah tebal cyan untuk judul metodologi spasial */
-        .report-block h3.gis-title {
-            border-bottom: 3px solid #00f2fe;
-            display: inline-block;
-            padding-bottom: 3px;
-            margin-bottom: 15px;
-        }
-
-        .report-block p {
-            color: #cbd5e0;
-            font-size: 0.95rem;
-            line-height: 1.7;
-            font-weight: 300;
-            text-align: justify;
-        }
-
-        .report-block ul {
-            margin-top: 10px;
-            margin-left: 20px;
-            color: #cbd5e0;
-            font-size: 0.95rem;
-            line-height: 1.7;
-            font-weight: 300;
-        }
-
-        .report-block li {
-            margin-bottom: 8px;
-        }
-
-        /* Responsivitas Menu di HP */
+        /* RESPONSIVITAS DEVICE KECIL (HP) */
         @media (max-width: 600px) {
             .navbar {
                 flex-direction: column;
@@ -341,7 +342,7 @@
                 font-size: 0.8rem;
             }
             .main-container {
-                margin-top: 140px; /* Tambahan jarak di HP karena navbar melebar ke bawah */
+                margin-top: 140px;
             }
         }
 
@@ -352,7 +353,7 @@
             font-size: 0.8rem;
             border-top: 1px solid rgba(255, 255, 255, 0.05);
             padding-top: 15px;
-            margin-top: 60px;
+            margin-top: 40px;
         }
     </style>
 </head>
@@ -364,9 +365,9 @@
         </div>
         <ul class="nav-menu">
             <li><a href="#" class="active">Beranda</a></li>
-            <li><a href="#peta-section">Peta Interaktif</a></li>
-            <li><a href="#dashboard-section">Dashboard</a></li>
+            <li><a href="#latar-belakang-section">Latar Belakang</a></li>
             <li><a href="#metodologi-section">Metodologi</a></li>
+            <li><a href="#peta-section">Peta Interaktif</a></li>
             <li><a href="#analisis-section">Analisis</a></li>
         </ul>
     </nav>
@@ -378,6 +379,30 @@
             Portal analisis spasial untuk mengevaluasi pemerataan dan keterjangkauan layanan pendidikan, mendukung pengambilan keputusan berbasis data geografis di Kota Semarang.
         </p>
 
+        <div class="report-section">
+            
+            <div id="latar-belakang-section" class="report-block">
+                <h3><i class="fa-solid fa-book-open"></i> Latar Belakang</h3>
+                <p>
+                    Pendidikan merupakan salah satu pilar krusial dalam pembangunan wilayah berkelanjutan. Kota Semarang sebagai pusat kegiatan ekonomi di Jawa Tengah terus mengalami pertumbuhan penduduk yang berimplikasi pada meningkatnya kebutuhan sarana pendidikan. Namun, distribusi sarana pendidikan sering kali dihadapkan pada masalah ketidakmerataan baik dari segi jangkauan fisik geografis maupun finansial.
+                </p>
+            </div>
+
+            <div id="metodologi-section" class="report-block">
+                <h3 class="gis-title"><i class="fa-solid fa-gears"></i> Metodologi Pemrosesan Spasial</h3>
+                <p>
+                    Penelitian ini memanfaatkan pendekatan Sistem Informasi Geografis (SIG) berbasis spasial dengan metode pengolahan data sebagai berikut:
+                </p>
+                <ul>
+                    <li><strong>Analisis Network Analysis (Service Area):</strong> Memodelkan batas cakupan jangkauan fisik sarana pendidikan berdasarkan parameter jaringan jalan.</li>
+                    <li><strong>Analisis Buffer & Overlay:</strong> Mendeteksi wilayah yang mengalami <i>blank spot</i> pelayanan pendidikan di Kota Semarang.</li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="stats-section-title" style="border-left-color: #ecc94b;">Pilihan Peta Interaktif Spasial</div>
+        
         <div id="peta-section" class="selection-grid">
             <div class="card">
                 <div>
@@ -390,7 +415,7 @@
                         <i class="fa-solid fa-location-dot"></i> Lihat Peta Aksesibilitas
                     </a>
                     <a href="#metodologi-section" class="btn btn-secondary">
-                        <i class="fa-solid fa-chart-line"></i> Pelajari Analisis Aksesibilitas
+                        <i class="fa-solid fa-chart-line"></i> Pelajari Metodologi
                     </a>
                 </div>
             </div>
@@ -406,13 +431,13 @@
                         <i class="fa-solid fa-money-bill-wave"></i> Lihat Peta Keterjangkauan
                     </a>
                     <a href="#metodologi-section" class="btn btn-secondary">
-                        <i class="fa-solid fa-chart-pie"></i> Pelajari Analisis Keterjangkauan
+                        <i class="fa-solid fa-chart-pie"></i> Pelajari Metodologi
                     </a>
                 </div>
             </div>
         </div>
 
-        <div id="dashboard-section" class="stats-section-title">Data Sebaran Sarana Pendidikan</div>
+        <div class="stats-section-title">Data Sebaran Sarana Pendidikan (Dashboard)</div>
         <div class="stats-grid">
             <div class="stat-card">
                 <div class="stat-card-icon"><i class="fa-solid fa-school"></i></div>
@@ -436,27 +461,9 @@
             </div>
         </div>
 
-        <div class="report-section">
+        <div id="analisis-section" class="report-section">
             
-            <div id="tentang-section" class="report-block">
-                <h3><i class="fa-solid fa-book-open"></i> Latar Belakang</h3>
-                <p>
-                    Pendidikan merupakan salah satu pilar krusial dalam pembangunan wilayah berkelanjutan. Kota Semarang sebagai pusat kegiatan ekonomi di Jawa Tengah terus mengalami pertumbuhan penduduk yang berimplikasi pada meningkatnya kebutuhan sarana pendidikan. Namun, distribusi sarana pendidikan sering kali dihadapkan pada masalah ketidakmerataan baik dari segi jangkauan fisik geografis maupun finansial.
-                </p>
-            </div>
-
-            <div id="metodologi-section" class="report-block">
-                <h3 class="gis-title"><i class="fa-solid fa-gears"></i> Metodologi Pemrosesan Spasial</h3>
-                <p>
-                    Penelitian ini memanfaatkan pendekatan Sistem Informasi Geografis (SIG) berbasis spasial dengan metode pengolahan data sebagai berikut:
-                </p>
-                <ul>
-                    <li><strong>Analisis Network Analysis (Service Area):</strong> Memodelkan batas cakupan jangkauan fisik sarana pendidikan berdasarkan parameter jaringan jalan.</li>
-                    <li><strong>Analisis Buffer & Overlay:</strong> Mendeteksi wilayah yang mengalami <i>blank spot</i> pelayanan pendidikan di Kota Semarang.</li>
-                </ul>
-            </div>
-
-            <div id="analisis-section" class="report-block">
+            <div class="report-block">
                 <h3><i class="fa-solid fa-square-poll-vertical"></i> Kesimpulan Analisis</h3>
                 <p>
                     Berdasarkan hasil pemetaan spasial, dapat disimpulkan bahwa wilayah pusat Kota Semarang memiliki tingkat aksesibilitas dan keterjangkauan sarana pendidikan yang sangat tinggi. Sebaliknya, wilayah pinggiran kota masih menghadapi tantangan berupa keterbatasan pilihan sekolah publik...
