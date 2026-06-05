@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Analisis Sarana Pendidikan Kota Semarang</title>
     
+    <!-- Google Fonts & FontAwesome Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -360,6 +361,7 @@
 </head>
 <body>
 
+    <!-- NAVBAR NAVIGASI ATAS -->
     <nav class="navbar">
         <div class="brand-logo">
             <i class="fa-solid fa-graduation-cap"></i> WebGIS <span>Pendidikan</span>
@@ -373,6 +375,7 @@
         </ul>
     </nav>
 
+    <!-- KONTEN UTAMA -->
     <div class="main-container">
         <span class="sub-tag"><i class="fa-solid fa-map-location-dot"></i> Web-Semarang</span>
         <h1>Analisis Aksesibilitas & Keterjangkauan <br><span>Sarana Pendidikan Kota Semarang</span></h1>
@@ -380,8 +383,10 @@
             Portal analisis spasial untuk mengevaluasi pemerataan dan keterjangkauan layanan pendidikan, mendukung pengambilan keputusan berbasis data geografis di Kota Semarang.
         </p>
 
+        <!-- KELOMPOK LAPORAN -->
         <div class="report-section">
             
+            <!-- 1. LATAR BELAKANG SECTION -->
             <div id="latar-belakang-section" class="report-block">
                 <h3><i class="fa-solid fa-book-open"></i> Latar Belakang</h3>
                 <p>
@@ -389,6 +394,7 @@
                 </p>
             </div>
 
+            <!-- 2. METODOLOGI SECTION -->
             <div id="metodologi-section" class="report-block">
                 <h3><i class="fa-solid fa-gears"></i> Metodologi Pemrosesan Spasial</h3>
                 <p>
@@ -402,10 +408,12 @@
 
         </div>
 
+        <!-- ================= DASHBOARD 2 KARTU INTERAKTIF KEDUA PETA ================= -->
         <div class="stats-section-title">Data Sebaran Sarana Pendidikan (Dashboard)</div>
         <div class="stats-grid">
             
-            <a href="peta-negeri.html" class="stat-card-link">
+            <!-- Kartu 1: SMA/K Negeri (Membuka Peta Khusus Negeri di Tab Baru) -->
+            <a href="peta-negeri.html" target="_blank" class="stat-card-link">
                 <div class="stat-card">
                     <div class="stat-card-icon"><i class="fa-solid fa-building-columns"></i></div>
                     <div class="stat-number">17</div>
@@ -413,7 +421,8 @@
                 </div>
             </a>
 
-            <a href="peta-swasta.html" class="stat-card-link">
+            <!-- Kartu 2: SMA/K Swasta (Membuka Peta Khusus Swasta di Tab Baru) -->
+            <a href="peta-swasta.html" target="_blank" class="stat-card-link">
                 <div class="stat-card">
                     <div class="stat-card-icon"><i class="fa-solid fa-school"></i></div>
                     <div class="stat-number">56</div>
@@ -423,9 +432,11 @@
 
         </div>
 
+        <!-- 3. PETA INTERAKTIF SECTION -->
         <div id="peta-section" class="stats-section-title" style="border-left-color: #ecc94b;">Pilihan Peta Interaktif Spasial</div>
         
         <div class="selection-grid">
+            <!-- Menu Peta 1 -->
             <div class="card">
                 <div>
                     <div class="card-icon"><i class="fa-solid fa-route"></i></div>
@@ -442,6 +453,7 @@
                 </div>
             </div>
 
+            <!-- Menu Peta 2 -->
             <div class="card">
                 <div>
                     <div class="card-icon"><i class="fa-solid fa-wallet"></i></div>
@@ -452,3 +464,38 @@
                     <a href="#peta-keterjangkauan" class="btn btn-primary">
                         <i class="fa-solid fa-money-bill-wave"></i> Lihat Peta Keterjangkauan
                     </a>
+                    <a href="#metodologi-section" class="btn btn-secondary">
+                        <i class="fa-solid fa-chart-pie"></i> Pelajari Metodologi
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4. ANALISIS SECTION (SUDAH KEMBALI LENGKAP UTUH) -->
+        <div id="analisis-section" class="report-section">
+            
+            <div class="report-block">
+                <h3><i class="fa-solid fa-square-poll-vertical"></i> Kesimpulan Analisis</h3>
+                <p>
+                    Berdasarkan hasil pemetaan spasial, dapat disimpulkan bahwa wilayah pusat Kota Semarang memiliki tingkat aksesibilitas dan keterjangkauan sarana pendidikan yang sangat tinggi. Sebaliknya, wilayah pinggiran kota masih menghadapi tantangan berupa keterbatasan pilihan sekolah publik, persebaran lokasi sarana yang tidak merata, serta jarak tempuh yang melebihi radius pelayanan ideal. Akibatnya, timbul ketimpangan aksesibilitas spasial antar-kecamatan yang perlu segera diintervensi oleh kebijakan zonasi dan pemerataan infrastruktur.
+                </p>
+            </div>
+
+            <div class="report-block">
+                <h3><i class="fa-solid fa-lightbulb"></i> Saran & Rekomendasi Perencanaan</h3>
+                <p>
+                    Sebagai upaya mengoptimalkan pelayanan sarana pendidikan di Kota Semarang, dirumuskan rekomendasi berupa prioritas pembangunan ruang kelas baru (RKB) atau sekolah baru khusus di kawasan teridentifikasi <i>blank spot</i> tinggi. Selain itu, diperlukan pemetaan rute transportasi sekolah gratis yang terintegrasi, serta pemberian insentif atau beasiswa silang guna memperkecil jurang disparitas keterjangkauan ekonomi antara sarana pendidikan negeri dan swasta.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>RHEZA GANTENG BANGETTTTTTTTTTTT| Perencanaan Wilayah dan Kota</p>
+    </footer>
+
+</body>
+</html>
