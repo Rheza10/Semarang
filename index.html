@@ -9,9 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
-        /* ==========================================
-           RESET & BASE STYLES (Mobile-First Default)
-           ========================================== */
+        /* RESET & BASE STYLES */
         * {
             margin: 0;
             padding: 0;
@@ -21,7 +19,7 @@
 
         html {
             scroll-behavior: smooth;
-            scroll-padding-top: 80px;
+            scroll-padding-top: 100px;
         }
 
         body {
@@ -31,16 +29,13 @@
             display: flex;
             flex-direction: column;
             line-height: 1.6;
-            font-size: 14px;
         }
 
-        /* ==========================================
-           NAVBAR (Default Mobile Style)
-           ========================================== */
+        /* NAVBAR (NAVIGASI ATAS) */
         .navbar {
-            background-color: rgba(27, 58, 36, 0.98);
+            background-color: rgba(27, 58, 36, 0.95);
             border-bottom: 1px solid rgba(166, 124, 82, 0.3);
-            padding: 15px 20px;
+            padding: 18px 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -50,20 +45,22 @@
             width: 100%;
             z-index: 1000;
             backdrop-filter: blur(12px);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
         }
 
         .brand-logo {
-            font-size: 1.1rem;
+            font-size: 1.25rem;
             font-weight: 800;
             color: #ffffff;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 12px;
+            letter-spacing: -0.5px;
         }
 
         .brand-logo i {
             color: #a67c52;
-            font-size: 1.2rem;
+            font-size: 1.4rem;
         }
 
         .brand-logo span {
@@ -72,137 +69,129 @@
         }
 
         .nav-menu {
-            position: fixed;
-            top: 60px;
-            left: -100%;
-            width: 100%;
-            height: calc(100vh - 60px);
-            background-color: #1b3a24;
             display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-start;
-            padding-top: 30px;
-            gap: 25px;
             list-style: none;
-            transition: left 0.3s ease-in-out;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            gap: 30px;
         }
 
         .nav-menu a {
             color: #e3dec3;
             text-decoration: none;
-            font-size: 1.1rem;
+            font-size: 0.9rem;
             font-weight: 500;
-            display: block;
-            padding: 10px 20px;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 4px 0;
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #a67c52;
+            transition: width 0.3s ease;
+        }
+
+        .nav-menu a:hover::after, .nav-menu a.active::after {
             width: 100%;
-            text-align: center;
         }
 
         .nav-menu a:hover, .nav-menu a.active {
             color: #ffffff;
-            background-color: rgba(166, 124, 82, 0.2);
         }
 
-        .menu-toggle {
-            display: flex;
-            flex-direction: column;
-            gap: 5px;
-            cursor: pointer;
-        }
-
-        .menu-toggle span {
-            display: block;
-            width: 25px;
-            height: 3px;
-            background-color: #ffffff;
-            border-radius: 2px;
-            transition: all 0.3s ease;
-        }
-
-        #nav-check {
-            display: none;
-        }
-
-        #nav-check:checked ~ .nav-menu {
-            left: 0;
-        }
-
-        #nav-check:checked ~ .menu-toggle span:nth-child(1) {
-            transform: rotate(45deg) translate(5px, 5px);
-        }
-
-        #nav-check:checked ~ .menu-toggle span:nth-child(2) {
-            opacity: 0;
-        }
-
-        #nav-check:checked ~ .menu-toggle span:nth-child(3) {
-            transform: rotate(-45deg) translate(6px, -6px);
-        }
-
-        /* ==========================================
-           HERO SECTION
-           ========================================== */
+        /* HERO HEADER SECTION */
         .hero-section {
             background: linear-gradient(135deg, #1b3a24 0%, #0f2416 100%);
-            padding: 110px 20px 60px 20px;
+            position: relative;
+            padding: 160px 20px 100px 20px;
             text-align: center;
             color: #ffffff;
+            overflow: hidden;
+        }
+
+        /* Pola Ornamen Peta Abstrak Geografis */
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: radial-gradient(rgba(166, 124, 82, 0.15) 1px, transparent 0);
+            background-size: 24px 24px;
+            opacity: 0.7;
+        }
+
+        .hero-content {
+            position: relative;
+            max-width: 850px;
+            margin: 0 auto;
+            z-index: 2;
         }
 
         .sub-tag {
             color: #1b3a24;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            font-size: 0.7rem;
+            letter-spacing: 2px;
+            font-size: 0.75rem;
             font-weight: 700;
-            margin-bottom: 15px;
+            margin-bottom: 25px;
             display: inline-flex;
             align-items: center;
-            gap: 6px;
+            gap: 8px;
             background-color: #e9e0d2;
-            padding: 4px 12px;
+            padding: 6px 16px;
             border-radius: 30px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
 
         .hero-content h1 {
-            font-size: 1.6rem;
+            font-size: 2.6rem;
             font-weight: 800;
-            line-height: 1.3;
-            margin-bottom: 15px;
+            line-height: 1.25;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+            color: #ffffff;
         }
 
         .hero-content h1 span {
             color: #a67c52;
+            background: linear-gradient(to right, #e9e0d2, #a67c52);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .description {
             color: #ced9cf;
-            font-size: 0.9rem;
-            line-height: 1.6;
+            font-size: 1.05rem;
+            line-height: 1.7;
+            max-width: 700px;
+            margin: 0 auto;
         }
 
-        /* ==========================================
-           MAIN CONTAINER & CONTENT
-           ========================================== */
+        /* MAIN CONTENT WRAPPER */
         .main-container {
-            width: 100%;
-            margin-top: -20px;
-            padding: 0 15px 40px 15px;
+            max-width: 1140px;
+            margin: -40px auto 0 auto;
+            padding: 0 20px 80px 20px;
+            position: relative;
+            z-index: 10;
         }
 
+        /* REPORT / DOKUMENTASI BOX */
         .report-section {
+            text-align: left;
             background: #ffffff;
             border: 1px solid rgba(166, 124, 82, 0.15);
-            border-radius: 16px;
-            padding: 25px 20px;
-            margin-bottom: 30px;
-            box-shadow: 0 10px 25px rgba(27, 58, 36, 0.03);
+            border-radius: 24px;
+            padding: 50px;
+            box-shadow: 0 20px 40px rgba(27, 58, 36, 0.04);
+            margin-bottom: 60px;
         }
 
         .report-block {
-            margin-bottom: 30px;
+            margin-bottom: 45px;
         }
 
         .report-block:last-child {
@@ -210,219 +199,296 @@
         }
 
         .report-block h3 {
-            font-size: 1.1rem;
+            font-size: 1.35rem;
             font-weight: 700;
             color: #1b3a24;
-            margin-bottom: 12px;
+            margin-bottom: 18px;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
         }
 
         .report-block h3 i {
             color: #a67c52;
             background: #faf5ef;
-            padding: 8px;
-            border-radius: 10px;
-            font-size: 1rem;
+            padding: 10px;
+            border-radius: 12px;
+            font-size: 1.1rem;
         }
 
         .report-block p {
             color: #524f4c;
-            font-size: 0.9rem;
+            font-size: 0.98rem;
+            line-height: 1.8;
             text-align: justify;
         }
 
-        /* Flowchart */
-        .methodology-container {
-            width: 100%;
-            overflow-x: auto;
-            margin-top: 20px;
-            border-radius: 12px;
-            border: 1px dashed rgba(166, 124, 82, 0.3);
-            background: #faf7f2;
-        }
-
+        /* VISUAL FLOWCHART METODOLOGI (Sesuai Gambar Referensi) */
         .methodology-flowchart {
             display: flex;
             align-items: center;
-            gap: 12px;
-            padding: 20px 15px;
-            min-width: 960px;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 35px;
+            padding: 20px 10px;
+            background: #faf7f2;
+            border-radius: 16px;
+            border: 1px dashed rgba(166, 124, 82, 0.25);
+            overflow-x: auto;
         }
 
         .flow-step {
             background: #1b3a24;
             color: #ffffff;
-            padding: 12px 15px;
-            border-radius: 8px;
+            padding: 12px 20px;
+            border-radius: 10px;
             font-weight: 700;
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             text-align: center;
-            min-width: 100px;
+            min-width: 110px;
+            box-shadow: 0 4px 10px rgba(27, 58, 36, 0.15);
+            white-space: nowrap;
         }
 
         .flow-step.main-data {
             background: #a67c52;
+            border-radius: 20px;
         }
 
         .flow-step-branches {
             display: flex;
             flex-direction: column;
-            gap: 8px;
+            gap: 10px;
         }
 
         .flow-branch {
             background: #ffffff;
             color: #1b3a24;
             border: 1.5px solid #1b3a24;
-            padding: 8px 12px;
-            border-radius: 6px;
+            padding: 10px 15px;
+            border-radius: 8px;
             font-weight: 600;
-            font-size: 0.75rem;
+            font-size: 0.8rem;
             text-align: center;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+            white-space: nowrap;
         }
 
         .flow-arrow {
             color: #a67c52;
-            font-size: 1rem;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
         }
 
         .flow-split-arrows {
             display: flex;
             flex-direction: column;
             justify-content: center;
-            gap: 22px;
+            gap: 25px;
             color: #a67c52;
-            font-size: 0.8rem;
+            font-size: 0.9rem;
         }
 
+        /* SECTIONS GENERAL TITLE */
         .stats-section-title {
-            font-size: 1.15rem;
+            text-align: left;
+            font-size: 1.4rem;
             font-weight: 700;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             color: #1b3a24;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
+            scroll-margin-top: 100px;
         }
 
         .stats-section-title::before {
             content: '';
             display: inline-block;
-            width: 5px;
-            height: 20px;
+            width: 6px;
+            height: 24px;
             background-color: #a67c52;
-            border-radius: 3px;
+            border-radius: 4px;
         }
 
-        /* Grid Layouts (HP) */
-        .stats-grid, .selection-grid {
+        /* DASHBOARD GRID STATISTIK */
+        .stats-grid {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 15px;
-            margin-bottom: 35px;
+            gap: 25px;
+            margin-bottom: 60px;
+        }
+
+        @media (min-width: 600px) {
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
 
         .stat-card-link {
             text-decoration: none;
             color: inherit;
-            cursor: pointer;
+            display: block;
         }
 
         .stat-card {
             background: #ffffff;
             border: 1px solid rgba(166, 124, 82, 0.12);
-            border-radius: 16px;
-            padding: 25px 15px;
+            border-radius: 20px;
+            padding: 40px 30px;
             text-align: center;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.01);
+            height: 100%;
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 4px;
+            background: linear-gradient(90deg, #1b3a24, #a67c52);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(166, 124, 82, 0.3);
+            box-shadow: 0 20px 40px rgba(27, 58, 36, 0.08);
+        }
+
+        .stat-card:hover::before {
+            opacity: 1;
         }
 
         .stat-card-icon {
-            font-size: 1.8rem;
+            font-size: 2.2rem;
             color: #a67c52;
-            margin-bottom: 10px;
-            background: #faf5ef;
-            width: 50px;
-            height: 50px;
-            line-height: 50px;
-            border-radius: 50%;
+            margin-bottom: 20px;
             display: inline-block;
+            background: #faf5ef;
+            width: 70px;
+            height: 70px;
+            line-height: 70px;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover .stat-card-icon {
+            background: #1b3a24;
+            color: #ffffff;
         }
 
         .stat-number {
-            font-size: 2.2rem;
+            font-size: 3.5rem;
             font-weight: 800;
             color: #1b3a24;
-            margin-bottom: 5px;
+            line-height: 1;
+            margin-bottom: 10px;
+            letter-spacing: -1px;
         }
 
         .stat-label {
             color: #706b65;
-            font-size: 0.85rem;
+            font-size: 1rem;
             font-weight: 600;
         }
 
-        /* Kartu Peta */
+        /* GRID PILIHAN PETA INTERAKTIF */
+        .selection-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        @media (min-width: 768px) {
+            .selection-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
         .card {
             background: #ffffff;
             border: 1px solid rgba(166, 124, 82, 0.12);
-            border-radius: 16px;
-            padding: 25px 20px;
+            border-radius: 24px;
+            padding: 40px 35px;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.01);
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            border-color: #a67c52;
+            box-shadow: 0 25px 50px rgba(166, 124, 82, 0.1);
+        }
+
+        .card-top-content {
+            text-align: left;
         }
 
         .card-icon {
-            font-size: 1.5rem;
+            font-size: 2rem;
             color: #1b3a24;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             background: #edf2ee;
-            width: 45px;
-            height: 45px;
-            line-height: 45px;
+            width: 60px;
+            height: 60px;
+            line-height: 60px;
             text-align: center;
-            border-radius: 10px;
+            border-radius: 16px;
         }
 
         .card h2 {
-            font-size: 1.15rem;
+            font-size: 1.4rem;
             font-weight: 700;
-            margin-bottom: 8px;
+            margin-bottom: 15px;
             color: #1b3a24;
+            letter-spacing: -0.3px;
         }
 
         .card p {
             color: #615d59;
-            font-size: 0.85rem;
-            margin-bottom: 20px;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 35px;
         }
 
+        /* BUTTONS & ACTIONS */
         .btn-group {
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            gap: 14px;
         }
 
         .btn {
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 8px;
-            padding: 12px 15px;
-            border-radius: 10px;
-            font-size: 0.85rem;
+            gap: 10px;
+            padding: 14px 24px;
+            border-radius: 14px;
+            font-size: 0.95rem;
             font-weight: 600;
             text-decoration: none;
-            cursor: pointer;
-            border: none;
-            transition: all 0.2s ease;
+            transition: all 0.3s ease;
         }
 
         .btn-primary {
             background-color: #1b3a24;
             color: #ffffff;
+            box-shadow: 0 4px 15px rgba(27, 58, 36, 0.2);
+        }
+
+        .btn-primary:hover {
+            background-color: #122818;
+            box-shadow: 0 6px 20px rgba(27, 58, 36, 0.3);
         }
 
         .btn-secondary {
@@ -431,139 +497,55 @@
             border: 1.5px solid #a67c52;
         }
 
-        /* ==========================================
-           LAPTOP / DESKTOP STYLE MEDIA QUERY
-           ========================================== */
-        @media (min-width: 992px) {
-            body {
-                font-size: 16px;
-            }
+        .btn-secondary:hover {
+            color: #ffffff;
+            background-color: #a67c52;
+        }
 
+        /* RESPONSIVITAS PERANGKAT */
+        @media (max-width: 768px) {
             .navbar {
-                padding: 15px 5%;
+                padding: 15px 20px;
             }
-
-            .brand-logo {
-                font-size: 1.25rem;
-            }
-
-            .menu-toggle {
+            .nav-menu {
                 display: none;
             }
-
-            .nav-menu {
-                position: static;
-                width: auto;
-                height: auto;
-                background-color: transparent;
-                flex-direction: row;
-                padding-top: 0;
-                gap: 25px;
-                box-shadow: none;
-            }
-
-            .nav-menu a {
-                font-size: 0.9rem;
-                padding: 4px 0;
-                width: auto;
-                position: relative;
-            }
-
-            .nav-menu a::after {
-                content: '';
-                position: absolute;
-                bottom: 0; left: 0; width: 0; height: 2px;
-                background-color: #a67c52;
-                transition: width 0.3s ease;
-            }
-
-            .nav-menu a:hover::after, .nav-menu a.active::after {
-                width: 100%;
-            }
-
-            .nav-menu a:hover {
-                background-color: transparent;
-            }
-
             .hero-section {
-                padding: 150px 24px 90px 24px;
+                padding: 130px 20px 80px 20px;
             }
-
             .hero-content h1 {
-                font-size: 2.5rem;
-                margin-bottom: 20px;
+                font-size: 2rem;
             }
-
-            .description {
-                font-size: 1.05rem;
-                max-width: 700px;
-                margin: 0 auto;
-            }
-
-            .main-container {
-                max-width: 1140px;
-                margin: -30px auto 0 auto;
-                padding: 0 20px 60px 20px;
-            }
-
             .report-section {
-                padding: 40px;
-                margin-bottom: 50px;
+                padding: 30px 20px;
             }
-
-            .report-block h3 {
-                font-size: 1.3rem;
-            }
-
-            .stats-section-title {
-                font-size: 1.35rem;
-                margin-bottom: 25px;
-            }
-
-            .stats-grid, .selection-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 25px;
-                margin-bottom: 50px;
-            }
-
-            .stat-card {
-                padding: 35px 20px;
-            }
-
-            .stat-number {
-                font-size: 3rem;
-            }
-
-            .card {
-                padding: 35px 30px;
-            }
-
-            .btn-group {
-                flex-direction: row;
-            }
-            .btn {
-                flex: 1;
+            .methodology-flowchart {
+                justify-content: flex-start;
             }
         }
 
-        /* ==========================================
-           FOOTER STYLES
-           ========================================== */
+        /* FOOTER DEKORATIF */
         footer {
             background-color: #112216;
-            padding: 30px 20px;
+            padding: 40px 20px;
             text-align: center;
             color: #8c968e;
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             border-top: 3px solid #a67c52;
             margin-top: auto;
+        }
+
+        footer p {
+            max-width: 600px;
+            margin: 0 auto;
+            letter-spacing: 0.3px;
         }
 
         footer .credits {
             color: #ffffff;
             font-weight: 600;
-            margin-bottom: 6px;
-            font-size: 0.9rem;
+            margin-bottom: 8px;
+            font-size: 0.95rem;
             letter-spacing: 1px;
         }
     </style>
@@ -574,14 +556,6 @@
         <div class="brand-logo">
             <i class="fa-solid fa-map-marked-alt"></i> WebGIS <span>Pendidikan</span>
         </div>
-        
-        <input type="checkbox" id="nav-check">
-        <label for="nav-check" class="menu-toggle">
-            <span></span>
-            <span></span>
-            <span></span>
-        </label>
-
         <ul class="nav-menu">
             <li><a href="#beranda" class="active">Beranda</a></li>
             <li><a href="#latar-belakang-section">Latar Belakang</a></li>
@@ -605,6 +579,7 @@
     <div class="main-container">
         
         <div class="report-section">
+            
             <div id="latar-belakang-section" class="report-block">
                 <h3><i class="fa-solid fa-feather-pointed"></i> Latar Belakang Wilayah</h3>
                 <p>
@@ -618,58 +593,58 @@
                     Penelitian spasial ini memanfaatkan kapabilitas komputasi Sistem Informasi Geografis (SIG) dengan menerapkan alur pemrosesan data terstruktur untuk menghasilkan model ketetapan analisis yang komprehensif:
                 </p>
                 
-                <div class="methodology-container">
-                    <div class="methodology-flowchart">
-                        <div class="flow-step main-data">DATA</div>
-                        <div class="flow-arrow"><i class="fa-solid fa-arrow-right"></i></div>
-                        
-                        <div class="flow-step">Data Cleaning</div>
-                        <div class="flow-arrow"><i class="fa-solid fa-arrow-right"></i></div>
-                        
-                        <div class="flow-step">Metodologi</div>
-                        <div class="flow-split-arrows">
-                            <i class="fa-solid fa-caret-right" style="transform: translateY(-12px);"></i>
-                            <i class="fa-solid fa-caret-right" style="transform: translateY(-4px);"></i>
-                            <i class="fa-solid fa-caret-right" style="transform: translateY(4px);"></i>
-                            <i class="fa-solid fa-caret-right" style="transform: translateY(12px);"></i>
-                        </div>
-                        
-                        <div class="flow-step-branches">
-                            <div class="flow-branch">Dasymetric Numeric</div>
-                            <div class="flow-branch">Huff Model</div>
-                            <div class="flow-branch">Urban Network Analysis (UNA)</div>
-                            <div class="flow-branch">OD Cost Matrix</div>
-                        </div>
-                        
-                        <div class="flow-split-arrows">
-                            <i class="fa-solid fa-caret-right" style="transform: translateY(-12px) rotate(180deg);"></i>
-                            <i class="fa-solid fa-caret-right" style="transform: translateY(-4px) rotate(180deg);"></i>
-                            <i class="fa-solid fa-caret-right" style="transform: translateY(4px) rotate(180deg);"></i>
-                            <i class="fa-solid fa-caret-right" style="transform: translateY(12px) rotate(180deg);"></i>
-                        </div>
-                        <div class="flow-arrow"><i class="fa-solid fa-arrow-right"></i></div>
-                        
-                        <div class="flow-step">Normalisasi</div>
-                        <div class="flow-arrow"><i class="fa-solid fa-arrow-right"></i></div>
-                        
-                        <div class="flow-step" style="white-space: normal; width: 130px;">Gabung menjadi satu indeks</div>
-                        <div class="flow-split-arrows">
-                            <i class="fa-solid fa-caret-right" style="transform: translateY(-8px);"></i>
-                            <i class="fa-solid fa-caret-right" style="transform: translateY(8px);"></i>
-                        </div>
-                        
-                        <div class="flow-step-branches">
-                            <div class="flow-branch">Halte Eksisting</div>
-                            <div class="flow-branch" style="background: #a67c52; color: #fff;">Rekomendasi</div>
-                        </div>
+                <div class="methodology-flowchart">
+                    <div class="flow-step main-data">DATA</div>
+                    <div class="flow-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+                    
+                    <div class="flow-step">Data Cleaning</div>
+                    <div class="flow-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+                    
+                    <div class="flow-step">Metodologi</div>
+                    <div class="flow-split-arrows">
+                        <i class="fa-solid fa-caret-right" style="transform: translateY(-12px);"></i>
+                        <i class="fa-solid fa-caret-right" style="transform: translateY(-4px);"></i>
+                        <i class="fa-solid fa-caret-right" style="transform: translateY(4px);"></i>
+                        <i class="fa-solid fa-caret-right" style="transform: translateY(12px);"></i>
+                    </div>
+                    
+                    <div class="flow-step-branches">
+                        <div class="flow-branch">Dasymetric Numeric</div>
+                        <div class="flow-branch">Huff Model</div>
+                        <div class="flow-branch">Urban Network Analysis (UNA)</div>
+                        <div class="flow-branch">OD Cost Matrix</div>
+                    </div>
+                    
+                    <div class="flow-split-arrows">
+                        <i class="fa-solid fa-caret-right" style="transform: translateY(-12px) rotate(180deg);"></i>
+                        <i class="fa-solid fa-caret-right" style="transform: translateY(-4px) rotate(180deg);"></i>
+                        <i class="fa-solid fa-caret-right" style="transform: translateY(4px) rotate(180deg);"></i>
+                        <i class="fa-solid fa-caret-right" style="transform: translateY(12px) rotate(180deg);"></i>
+                    </div>
+                    <div class="flow-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+                    
+                    <div class="flow-step">Normalisasi</div>
+                    <div class="flow-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+                    
+                    <div class="flow-step" style="white-space: normal; width: 130px;">Gabung menjadi satu indeks</div>
+                    <div class="flow-split-arrows">
+                        <i class="fa-solid fa-caret-right" style="transform: translateY(-8px);"></i>
+                        <i class="fa-solid fa-caret-right" style="transform: translateY(8px);"></i>
+                    </div>
+                    
+                    <div class="flow-step-branches">
+                        <div class="flow-branch" style="background: #e9e0d2;">Halte Eksisting</div>
+                        <div class="flow-branch" style="background: #a67c52; color: #fff;">Rekomendasi</div>
                     </div>
                 </div>
-            </div>
+                </div>
+
         </div>
 
         <div id="dashboard-section" class="stats-section-title">Dashboard Sebaran Sarana Pendidikan</div>
         <div class="stats-grid">
-            <a onclick="navigateToPage('https://rheza10.github.io/SMA-K-Negeri-Kota-Semarang/#13', 'Dashboard SMA/SMK Negeri')" class="stat-card-link">
+            
+            <a href="https://rheza10.github.io/SMA-K-Negeri-Kota-Semarang/#13" class="stat-card-link">
                 <div class="stat-card">
                     <div class="stat-card-icon"><i class="fa-solid fa-landmark-flag"></i></div>
                     <div class="stat-number">17</div>
@@ -677,16 +652,18 @@
                 </div>
             </a>
 
-            <a onclick="navigateToPage('https://rheza10.github.io/SMAN-K-Swasta-Kota-Semarang/#12', 'Dashboard SMA/SMK Swasta')" class="stat-card-link">
+            <a href="https://rheza10.github.io/SMAN-K-Swasta-Kota-Semarang/#12" class="stat-card-link">
                 <div class="stat-card">
                     <div class="stat-card-icon"><i class="fa-solid fa-school-flag"></i></div>
                     <div class="stat-number">56</div>
                     <div class="stat-label">Total SMA / SMK Swasta</div>
                 </div>
             </a>
+
         </div>
 
         <div id="peta-section" class="stats-section-title">Eksplorasi Peta Interaktif</div>
+        
         <div class="selection-grid">
             <div class="card">
                 <div class="card-top-content">
@@ -695,9 +672,9 @@
                     <p>Analis dari kuota sekolah, status sekolah, akreditas, permukiman.</p>
                 </div>
                 <div class="btn-group">
-                    <button class="btn btn-primary" onclick="navigateToPage('#peta-probabilitas-link-anda', 'Peta Probabilitas Sekolah')">
-                        <i class="fa-solid fa-circle-nodes"></i> Buka Peta Probabilitas
-                    </button>
+                    <a href="#peta-probabilitas" class="btn btn-primary">
+                        <i class="fa-solid fa-circle-nodes"></i> Buka Peta probabilitas
+                    </a>
                     <a href="#metodologi-section" class="btn btn-secondary">
                         <i class="fa-solid fa-arrow-right-to-bracket"></i> Tinjau Metode
                     </a>
@@ -708,12 +685,12 @@
                 <div class="card-top-content">
                     <div class="card-icon"><i class="fa-solid fa-hand-holding-dollar"></i></div>
                     <h2>Keterjangkauan Sarana Pendidikan</h2>
-                    <p>Jangkauan pelayanan pendidikan melalui Social Network Analyst berdasarkan jaringan jalan dengan jangkauan cakupan radius maksimal 3.000 meter mengacu pada SNI 03-1733-2004.</p>
+                    <p>Jangkauan pelayanan pendidikan melalui Social Network Analyst berdasarkan jaringan jalan dengan jangkauan cakupan radius maksimal 3.000 meter mengacu pada  SNI 03-1733-2004.</p>
                 </div>
                 <div class="btn-group">
-                    <button class="btn btn-primary" onclick="navigateToPage('#peta-keterjangkauan-link-anda', 'Peta Keterjangkauan Sekolah')">
+                    <a href="#peta-keterjangkauan" class="btn btn-primary">
                         <i class="fa-solid fa-sliders"></i> Buka Peta Keterjangkauan
-                    </button>
+                    </a>
                     <a href="#metodologi-section" class="btn btn-secondary">
                         <i class="fa-solid fa-arrow-right-to-bracket"></i> Tinjau Metode
                     </a>
@@ -722,6 +699,7 @@
         </div>
 
         <div id="analisis-section" class="report-section">
+            
             <div class="report-block">
                 <h3><i class="fa-solid fa-chart-pie"></i> Kesimpulan Analisis Spasial</h3>
                 <p>
@@ -735,6 +713,7 @@
                     Sebagai upaya mengoptimalkan pelayanan sarana pendidikan di Kota Semarang, dirumuskan rekomendasi berupa prioritas pembangunan ruang kelas baru (RKB) atau sekolah baru khusus di kawasan teridentifikasi <i>blank spot</i> tinggi. Selain itu, diperlukan pemetaan rute transportasi sekolah gratis yang terintegrasi, serta pemberian insentif atau beasiswa silang guna memperkecil jurang disparitas keterjangkauan ekonomi antara sarana pendidikan negeri dan swasta.
                 </p>
             </div>
+
         </div>
 
     </div>
@@ -744,35 +723,5 @@
         <p>Laboratorium Pengembangan GIS & Perencanaan Wilayah dan Kota | &copy; 2026</p>
     </footer>
 
-    <script>
-        // Otomatis menutup menu mobile jika tautan diklik
-        document.querySelectorAll('.nav-menu a').forEach(link => {
-            link.addEventListener('click', () => {
-                document.getElementById('nav-check').checked = false;
-            });
-        });
-
-        /**
-         * FUNGSI DIALOG NAVIGASI PROFESIONAL
-         * Memunculkan konfirmasi native sebelum berpindah halaman
-         */
-        function navigateToPage(url, pageName) {
-            const pesanPeringatan = `Anda akan dialihkan dan meninggalkan halaman utama untuk membuka:\n\n"${pageName}"\n\nApakah Anda ingin melanjutkan?`;
-            
-            if (confirm(pesanPeringatan)) {
-                window.location.href = url;
-            }
-        }
-
-        /**
-         * FUNGSI PERINGATAN KELUAR / REFRESH SITUS (BEFOREUNLOAD)
-         * Menahan user jika tidak sengaja menutup tab atau me-refresh web
-         */
-        window.addEventListener('beforeunload', function (e) {
-            // Standar pengaktifan interupsi browser sebelum keluar halaman
-            e.preventDefault();
-            e.returnValue = ''; // Teks kustom sekarang diabaikan browser modern demi keamanan, namun fungsi tetap memicu alert bawaan
-        });
-    </script>
 </body>
 </html>
