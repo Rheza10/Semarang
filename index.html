@@ -31,7 +31,7 @@
             display: flex;
             flex-direction: column;
             line-height: 1.6;
-            font-size: 14px; /* Standar ukuran font dasar di HP */
+            font-size: 14px;
         }
 
         /* ==========================================
@@ -71,7 +71,6 @@
             font-weight: 400;
         }
 
-        /* Nav Menu di HP (Sembunyi default, muncul saat dicheck) */
         .nav-menu {
             position: fixed;
             top: 60px;
@@ -106,7 +105,6 @@
             background-color: rgba(166, 124, 82, 0.2);
         }
 
-        /* Hamburger Button (Hanya tampil di HP) */
         .menu-toggle {
             display: flex;
             flex-direction: column;
@@ -127,7 +125,6 @@
             display: none;
         }
 
-        /* Logika Buka Tutup Menu HP */
         #nav-check:checked ~ .nav-menu {
             left: 0;
         }
@@ -144,9 +141,8 @@
             transform: rotate(-45deg) translate(6px, -6px);
         }
 
-
         /* ==========================================
-           HERO SECTION (Default Mobile Style)
+           HERO SECTION
            ========================================== */
         .hero-section {
             background: linear-gradient(135deg, #1b3a24 0%, #0f2416 100%);
@@ -171,7 +167,7 @@
         }
 
         .hero-content h1 {
-            font-size: 1.6rem; /* Ukuran pas di layar HP */
+            font-size: 1.6rem;
             font-weight: 800;
             line-height: 1.3;
             margin-bottom: 15px;
@@ -187,9 +183,8 @@
             line-height: 1.6;
         }
 
-
         /* ==========================================
-           MAIN CONTENT CONTAINER
+           MAIN CONTAINER & CONTENT
            ========================================== */
         .main-container {
             width: 100%;
@@ -197,7 +192,6 @@
             padding: 0 15px 40px 15px;
         }
 
-        /* Kotak Putih Latar & Metodologi */
         .report-section {
             background: #ffffff;
             border: 1px solid rgba(166, 124, 82, 0.15);
@@ -239,7 +233,7 @@
             text-align: justify;
         }
 
-        /* Flowchart Horizontal Swipeable di HP */
+        /* Flowchart */
         .methodology-container {
             width: 100%;
             overflow-x: auto;
@@ -254,7 +248,7 @@
             align-items: center;
             gap: 12px;
             padding: 20px 15px;
-            min-width: 960px; /* Dikunci agar diagram tidak mengkerut jelek di HP */
+            min-width: 960px;
         }
 
         .flow-step {
@@ -303,7 +297,6 @@
             font-size: 0.8rem;
         }
 
-        /* Section Title */
         .stats-section-title {
             font-size: 1.15rem;
             font-weight: 700;
@@ -323,13 +316,10 @@
             border-radius: 3px;
         }
 
-
-        /* ==========================================
-           GRID LAYOUTS (Default 1 Kolom untuk HP)
-           ========================================== */
+        /* Grid Layouts (HP) */
         .stats-grid, .selection-grid {
             display: grid;
-            grid-template-columns: 1fr; /* 1 Kolom penuh di HP */
+            grid-template-columns: 1fr;
             gap: 15px;
             margin-bottom: 35px;
         }
@@ -345,7 +335,6 @@
             border-radius: 16px;
             padding: 25px 15px;
             text-align: center;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.01);
         }
 
         .stat-card-icon {
@@ -373,7 +362,7 @@
             font-weight: 600;
         }
 
-        /* Kartu Peta Pilihan */
+        /* Kartu Peta */
         .card {
             background: #ffffff;
             border: 1px solid rgba(166, 124, 82, 0.12);
@@ -409,7 +398,6 @@
             margin-bottom: 20px;
         }
 
-        /* Buttons */
         .btn-group {
             display: flex;
             flex-direction: column;
@@ -426,6 +414,8 @@
             font-size: 0.85rem;
             font-weight: 600;
             text-decoration: none;
+            cursor: pointer;
+            border: none;
             transition: all 0.2s ease;
         }
 
@@ -440,16 +430,101 @@
             border: 1.5px solid #a67c52;
         }
 
+        /* ==========================================
+           SISTEM POP-UP (MODAL DIAL-IN) RESPONSIVE
+           ========================================== */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(15, 36, 22, 0.6); /* Backdrop agak gelap */
+            backdrop-filter: blur(4px);
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        /* Muncul saat kelas 'active' ditambahkan via JS */
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-box {
+            background-color: #ffffff;
+            border-radius: 20px;
+            width: 100%;
+            max-width: 500px;
+            padding: 30px 25px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+            text-align: center;
+            position: relative;
+            transform: translateY(30px);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .modal-overlay.active .modal-box {
+            transform: translateY(0);
+        }
+
+        .modal-icon {
+            width: 65px;
+            height: 65px;
+            background-color: #faf5ef;
+            color: #a67c52;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin: 0 auto 20px auto;
+        }
+
+        .modal-box h3 {
+            color: #1b3a24;
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .modal-box p {
+            color: #615d59;
+            font-size: 0.9rem;
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+
+        .modal-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .btn-modal-close {
+            background-color: #f2eeea;
+            color: #524f4c;
+        }
+
+        .btn-modal-close:hover {
+            background-color: #e5dfd9;
+        }
+
 
         /* ==========================================
-           LAPTOP / DESKTOP MEDIA QUERY (Layar Lebar)
+           LAPTOP / DESKTOP STYLE MEDIA QUERY
            ========================================== */
         @media (min-width: 992px) {
             body {
-                font-size: 16px; /* Ukuran font ideal untuk laptop */
+                font-size: 16px;
             }
 
-            /* Perubahan Gaya Navbar di Laptop */
             .navbar {
                 padding: 15px 5%;
             }
@@ -459,15 +534,15 @@
             }
 
             .menu-toggle {
-                display: none; /* Sembunyikan tombol hamburger di laptop */
+                display: none;
             }
 
             .nav-menu {
-                position: static; /* Kembalikan menu ke posisi normal atas */
+                position: static;
                 width: auto;
                 height: auto;
                 background-color: transparent;
-                flex-direction: row; /* Menu berjejer ke samping */
+                flex-direction: row;
                 padding-top: 0;
                 gap: 25px;
                 box-shadow: none;
@@ -496,7 +571,6 @@
                 background-color: transparent;
             }
 
-            /* Perubahan Hero Header di Laptop */
             .hero-section {
                 padding: 150px 24px 90px 24px;
             }
@@ -512,7 +586,6 @@
                 margin: 0 auto;
             }
 
-            /* Perubahan Layout Grid di Laptop (Menjadi 2 Kolom Sejajar) */
             .main-container {
                 max-width: 1140px;
                 margin: -30px auto 0 auto;
@@ -533,9 +606,9 @@
                 margin-bottom: 25px;
             }
 
-            /* Mengubah grid dari 1 kolom (HP) menjadi 2 kolom (Laptop) */
+            /* Mengubah menjadi 2 kolom menyamping di desktop */
             .stats-grid, .selection-grid {
-                grid-template-columns: repeat(2, 1fr); 
+                grid-template-columns: repeat(2, 1fr);
                 gap: 25px;
                 margin-bottom: 50px;
             }
@@ -552,11 +625,18 @@
                 padding: 35px 30px;
             }
 
-            /* Tombol grup di laptop disusun horizontal/vertikal fleksibel */
             .btn-group {
                 flex-direction: row;
             }
             .btn {
+                flex: 1;
+            }
+
+            /* Tombol aksi pop-up di layar laptop menjadi horizontal */
+            .modal-buttons {
+                flex-direction: row;
+            }
+            .modal-buttons .btn {
                 flex: 1;
             }
         }
@@ -710,9 +790,9 @@
                     <p>Analis dari kuota sekolah, status sekolah, akreditas, permukiman.</p>
                 </div>
                 <div class="btn-group">
-                    <a href="#peta-probabilitas" class="btn btn-primary">
+                    <button class="btn btn-primary" onclick="openMapModal('probabilitas')">
                         <i class="fa-solid fa-circle-nodes"></i> Buka Peta Probabilitas
-                    </a>
+                    </button>
                     <a href="#metodologi-section" class="btn btn-secondary">
                         <i class="fa-solid fa-arrow-right-to-bracket"></i> Tinjau Metode
                     </a>
@@ -726,9 +806,9 @@
                     <p>Jangkauan pelayanan pendidikan melalui Social Network Analyst berdasarkan jaringan jalan dengan jangkauan cakupan radius maksimal 3.000 meter mengacu pada SNI 03-1733-2004.</p>
                 </div>
                 <div class="btn-group">
-                    <a href="#peta-keterjangkauan" class="btn btn-primary">
+                    <button class="btn btn-primary" onclick="openMapModal('keterjangkauan')">
                         <i class="fa-solid fa-sliders"></i> Buka Peta Keterjangkauan
-                    </a>
+                    </button>
                     <a href="#metodologi-section" class="btn btn-secondary">
                         <i class="fa-solid fa-arrow-right-to-bracket"></i> Tinjau Metode
                     </a>
@@ -754,6 +834,20 @@
 
     </div>
 
+    <div class="modal-overlay" id="mapModal">
+        <div class="modal-box">
+            <div class="modal-icon">
+                <i class="fa-solid fa-circle-info"></i>
+            </div>
+            <h3 id="modalTitle">Konfirmasi Pengalihan</h3>
+            <p id="modalDescription">Anda akan dialihkan menuju halaman visualisasi WebGIS eksternal. Pastikan koneksi internet Anda stabil untuk memuat aset layer peta spasial.</p>
+            <div class="modal-buttons">
+                <a href="#" id="modalConfirmBtn" class="btn btn-primary" target="_blank">Lanjutkan ke Peta</a>
+                <button class="btn btn-modal-close" onclick="closeMapModal()">Kembali</button>
+            </div>
+        </div>
+    </div>
+
     <footer>
         <p class="credits">RHEZA GANTENG BANGETTTTTTTTTT</p>
         <p>Laboratorium Pengembangan GIS & Perencanaan Wilayah dan Kota | &copy; 2026</p>
@@ -765,6 +859,39 @@
             link.addEventListener('click', () => {
                 document.getElementById('nav-check').checked = false;
             });
+        });
+
+        // LOGIKA STRUKTUR POP-UP (MODAL)
+        const modalOverlay = document.getElementById('mapModal');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalDescription = document.getElementById('modalDescription');
+        const modalConfirmBtn = document.getElementById('modalConfirmBtn');
+
+        function openMapModal(type) {
+            if (type === 'probabilitas') {
+                modalTitle.innerText = "Peta Probabilitas Sekolah";
+                modalDescription.innerText = "Anda akan membuka peta interaktif analisis probabilitas Huff Gravity Model berdasarkan parameter daya tampung, akreditasi, dan sebaran permukiman.";
+                modalConfirmBtn.href = "#peta-probabilitas-link-anda"; // <--- Masukkan link peta probabilitas asli di sini
+            } else if (type === 'keterjangkauan') {
+                modalTitle.innerText = "Peta Keterjangkauan Sekolah";
+                modalDescription.innerText = "Anda akan dialihkan menuju visualisasi Spatial Network Analysis dengan cakupan radius pelayanan infrastruktur jalan sejauh 3.000 meter.";
+                modalConfirmBtn.href = "#peta-keterjangkauan-link-anda"; // <--- Masukkan link peta keterjangkauan asli di sini
+            }
+            
+            // Tampilkan Pop-up
+            modalOverlay.classList.add('active');
+        }
+
+        function closeMapModal() {
+            // Sembunyikan Pop-up
+            modalOverlay.classList.remove('active');
+        }
+
+        // Menutup pop-up secara aman jika user klik di luar kotak putih
+        modalOverlay.addEventListener('click', (e) => {
+            if (e.target === modalOverlay) {
+                closeMapModal();
+            }
         });
     </script>
 </body>
