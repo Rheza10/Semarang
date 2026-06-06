@@ -327,6 +327,7 @@
         .stat-card-link {
             text-decoration: none;
             color: inherit;
+            cursor: pointer;
         }
 
         .stat-card {
@@ -431,93 +432,6 @@
         }
 
         /* ==========================================
-           SISTEM POP-UP (MODAL DIAL-IN) RESPONSIVE
-           ========================================== */
-        .modal-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(15, 36, 22, 0.6); /* Backdrop agak gelap */
-            backdrop-filter: blur(4px);
-            z-index: 2000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-        }
-
-        /* Muncul saat kelas 'active' ditambahkan via JS */
-        .modal-overlay.active {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .modal-box {
-            background-color: #ffffff;
-            border-radius: 20px;
-            width: 100%;
-            max-width: 500px;
-            padding: 30px 25px;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.2);
-            text-align: center;
-            position: relative;
-            transform: translateY(30px);
-            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .modal-overlay.active .modal-box {
-            transform: translateY(0);
-        }
-
-        .modal-icon {
-            width: 65px;
-            height: 65px;
-            background-color: #faf5ef;
-            color: #a67c52;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            margin: 0 auto 20px auto;
-        }
-
-        .modal-box h3 {
-            color: #1b3a24;
-            font-size: 1.3rem;
-            font-weight: 700;
-            margin-bottom: 12px;
-        }
-
-        .modal-box p {
-            color: #615d59;
-            font-size: 0.9rem;
-            margin-bottom: 25px;
-            line-height: 1.6;
-        }
-
-        .modal-buttons {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .btn-modal-close {
-            background-color: #f2eeea;
-            color: #524f4c;
-        }
-
-        .btn-modal-close:hover {
-            background-color: #e5dfd9;
-        }
-
-
-        /* ==========================================
            LAPTOP / DESKTOP STYLE MEDIA QUERY
            ========================================== */
         @media (min-width: 992px) {
@@ -606,7 +520,6 @@
                 margin-bottom: 25px;
             }
 
-            /* Mengubah menjadi 2 kolom menyamping di desktop */
             .stats-grid, .selection-grid {
                 grid-template-columns: repeat(2, 1fr);
                 gap: 25px;
@@ -629,14 +542,6 @@
                 flex-direction: row;
             }
             .btn {
-                flex: 1;
-            }
-
-            /* Tombol aksi pop-up di layar laptop menjadi horizontal */
-            .modal-buttons {
-                flex-direction: row;
-            }
-            .modal-buttons .btn {
                 flex: 1;
             }
         }
@@ -764,7 +669,7 @@
 
         <div id="dashboard-section" class="stats-section-title">Dashboard Sebaran Sarana Pendidikan</div>
         <div class="stats-grid">
-            <a href="https://rheza10.github.io/SMA-K-Negeri-Kota-Semarang/#13" class="stat-card-link" target="_blank">
+            <a onclick="navigateToPage('https://rheza10.github.io/SMA-K-Negeri-Kota-Semarang/#13', 'Dashboard SMA/SMK Negeri')" class="stat-card-link">
                 <div class="stat-card">
                     <div class="stat-card-icon"><i class="fa-solid fa-landmark-flag"></i></div>
                     <div class="stat-number">17</div>
@@ -772,7 +677,7 @@
                 </div>
             </a>
 
-            <a href="https://rheza10.github.io/SMAN-K-Swasta-Kota-Semarang/#12" class="stat-card-link" target="_blank">
+            <a onclick="navigateToPage('https://rheza10.github.io/SMAN-K-Swasta-Kota-Semarang/#12', 'Dashboard SMA/SMK Swasta')" class="stat-card-link">
                 <div class="stat-card">
                     <div class="stat-card-icon"><i class="fa-solid fa-school-flag"></i></div>
                     <div class="stat-number">56</div>
@@ -790,7 +695,7 @@
                     <p>Analis dari kuota sekolah, status sekolah, akreditas, permukiman.</p>
                 </div>
                 <div class="btn-group">
-                    <button class="btn btn-primary" onclick="openMapModal('probabilitas')">
+                    <button class="btn btn-primary" onclick="navigateToPage('#peta-probabilitas-link-anda', 'Peta Probabilitas Sekolah')">
                         <i class="fa-solid fa-circle-nodes"></i> Buka Peta Probabilitas
                     </button>
                     <a href="#metodologi-section" class="btn btn-secondary">
@@ -806,7 +711,7 @@
                     <p>Jangkauan pelayanan pendidikan melalui Social Network Analyst berdasarkan jaringan jalan dengan jangkauan cakupan radius maksimal 3.000 meter mengacu pada SNI 03-1733-2004.</p>
                 </div>
                 <div class="btn-group">
-                    <button class="btn btn-primary" onclick="openMapModal('keterjangkauan')">
+                    <button class="btn btn-primary" onclick="navigateToPage('#peta-keterjangkauan-link-anda', 'Peta Keterjangkauan Sekolah')">
                         <i class="fa-solid fa-sliders"></i> Buka Peta Keterjangkauan
                     </button>
                     <a href="#metodologi-section" class="btn btn-secondary">
@@ -834,20 +739,6 @@
 
     </div>
 
-    <div class="modal-overlay" id="mapModal">
-        <div class="modal-box">
-            <div class="modal-icon">
-                <i class="fa-solid fa-circle-info"></i>
-            </div>
-            <h3 id="modalTitle">Konfirmasi Pengalihan</h3>
-            <p id="modalDescription">Anda akan dialihkan menuju halaman visualisasi WebGIS eksternal. Pastikan koneksi internet Anda stabil untuk memuat aset layer peta spasial.</p>
-            <div class="modal-buttons">
-                <a href="#" id="modalConfirmBtn" class="btn btn-primary" target="_blank">Lanjutkan ke Peta</a>
-                <button class="btn btn-modal-close" onclick="closeMapModal()">Kembali</button>
-            </div>
-        </div>
-    </div>
-
     <footer>
         <p class="credits">RHEZA GANTENG BANGETTTTTTTTTT</p>
         <p>Laboratorium Pengembangan GIS & Perencanaan Wilayah dan Kota | &copy; 2026</p>
@@ -861,37 +752,26 @@
             });
         });
 
-        // LOGIKA STRUKTUR POP-UP (MODAL)
-        const modalOverlay = document.getElementById('mapModal');
-        const modalTitle = document.getElementById('modalTitle');
-        const modalDescription = document.getElementById('modalDescription');
-        const modalConfirmBtn = document.getElementById('modalConfirmBtn');
-
-        function openMapModal(type) {
-            if (type === 'probabilitas') {
-                modalTitle.innerText = "Peta Probabilitas Sekolah";
-                modalDescription.innerText = "Anda akan membuka peta interaktif analisis probabilitas Huff Gravity Model berdasarkan parameter daya tampung, akreditasi, dan sebaran permukiman.";
-                modalConfirmBtn.href = "#peta-probabilitas-link-anda"; // <--- Masukkan link peta probabilitas asli di sini
-            } else if (type === 'keterjangkauan') {
-                modalTitle.innerText = "Peta Keterjangkauan Sekolah";
-                modalDescription.innerText = "Anda akan dialihkan menuju visualisasi Spatial Network Analysis dengan cakupan radius pelayanan infrastruktur jalan sejauh 3.000 meter.";
-                modalConfirmBtn.href = "#peta-keterjangkauan-link-anda"; // <--- Masukkan link peta keterjangkauan asli di sini
-            }
+        /**
+         * FUNGSI DIALOG NAVIGASI PROFESIONAL
+         * Memunculkan konfirmasi native sebelum berpindah halaman
+         */
+        function navigateToPage(url, pageName) {
+            const pesanPeringatan = `Anda akan dialihkan dan meninggalkan halaman utama untuk membuka:\n\n"${pageName}"\n\nApakah Anda ingin melanjutkan?`;
             
-            // Tampilkan Pop-up
-            modalOverlay.classList.add('active');
-        }
-
-        function closeMapModal() {
-            // Sembunyikan Pop-up
-            modalOverlay.classList.remove('active');
-        }
-
-        // Menutup pop-up secara aman jika user klik di luar kotak putih
-        modalOverlay.addEventListener('click', (e) => {
-            if (e.target === modalOverlay) {
-                closeMapModal();
+            if (confirm(pesanPeringatan)) {
+                window.location.href = url;
             }
+        }
+
+        /**
+         * FUNGSI PERINGATAN KELUAR / REFRESH SITUS (BEFOREUNLOAD)
+         * Menahan user jika tidak sengaja menutup tab atau me-refresh web
+         */
+        window.addEventListener('beforeunload', function (e) {
+            // Standar pengaktifan interupsi browser sebelum keluar halaman
+            e.preventDefault();
+            e.returnValue = ''; // Teks kustom sekarang diabaikan browser modern demi keamanan, namun fungsi tetap memicu alert bawaan
         });
     </script>
 </body>
