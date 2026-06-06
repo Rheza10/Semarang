@@ -267,4 +267,600 @@
             padding: 12px 20px;
             border-radius: 10px;
             font-weight: 700;
-            font-size: 0.85
+            font-size: 0.85rem;
+            text-align: center;
+            min-width: 120px;
+            box-shadow: 0 4px 10px rgba(27, 58, 36, 0.15);
+            white-space: nowrap;
+        }
+
+        .flow-step.main-data {
+            background: #a67c52;
+            border-radius: 20px;
+        }
+
+        .flow-step-branches {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .flow-branch {
+            background: #ffffff;
+            color: #1b3a24;
+            border: 1.5px solid #1b3a24;
+            padding: 10px 15px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.8rem;
+            text-align: center;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+            white-space: nowrap;
+        }
+
+        .flow-arrow {
+            color: #a67c52;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .flow-split-arrows {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 25px;
+            color: #a67c52;
+            font-size: 0.9rem;
+        }
+
+        /* SECTIONS GENERAL TITLE */
+        .stats-section-title {
+            text-align: left;
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 25px;
+            color: #1b3a24;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            scroll-margin-top: 110px;
+        }
+
+        .stats-section-title::before {
+            content: '';
+            display: inline-block;
+            width: 6px;
+            height: 24px;
+            background-color: #a67c52;
+            border-radius: 4px;
+        }
+
+        /* DASHBOARD GRID STATISTIK */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .stat-card-link {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .stat-card {
+            background: #ffffff;
+            border: 1px solid rgba(166, 124, 82, 0.12);
+            border-radius: 20px;
+            padding: 35px 25px;
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.01);
+            height: 100%;
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 4px;
+            background: linear-gradient(90deg, #1b3a24, #a67c52);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(166, 124, 82, 0.3);
+            box-shadow: 0 20px 40px rgba(27, 58, 36, 0.08);
+        }
+
+        .stat-card:hover::before {
+            opacity: 1;
+        }
+
+        .stat-card-icon {
+            font-size: 2.2rem;
+            color: #a67c52;
+            margin-bottom: 15px;
+            display: inline-block;
+            background: #faf5ef;
+            width: 70px;
+            height: 70px;
+            line-height: 70px;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover .stat-card-icon {
+            background: #1b3a24;
+            color: #ffffff;
+        }
+
+        .stat-number {
+            font-size: 3.2rem;
+            font-weight: 800;
+            color: #1b3a24;
+            line-height: 1;
+            margin-bottom: 10px;
+            letter-spacing: -1px;
+        }
+
+        .stat-label {
+            color: #706b65;
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        /* GRID PILIHAN PETA INTERAKTIF */
+        .selection-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .card {
+            background: #ffffff;
+            border: 1px solid rgba(166, 124, 82, 0.12);
+            border-radius: 24px;
+            padding: 35px;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.01);
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            border-color: #a67c52;
+            box-shadow: 0 25px 50px rgba(166, 124, 82, 0.1);
+        }
+
+        .card-top-content {
+            text-align: left;
+        }
+
+        .card-icon {
+            font-size: 2rem;
+            color: #1b3a24;
+            margin-bottom: 20px;
+            background: #edf2ee;
+            width: 60px;
+            height: 60px;
+            line-height: 60px;
+            text-align: center;
+            border-radius: 16px;
+        }
+
+        .card h2 {
+            font-size: 1.35rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: #1b3a24;
+            letter-spacing: -0.3px;
+        }
+
+        .card p {
+            color: #615d59;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        /* BUTTONS & ACTIONS */
+        .btn-group {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 14px 24px;
+            border-radius: 14px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background-color: #1b3a24;
+            color: #ffffff;
+            box-shadow: 0 4px 15px rgba(27, 58, 36, 0.2);
+        }
+
+        .btn-primary:hover {
+            background-color: #122818;
+            box-shadow: 0 6px 20px rgba(27, 58, 36, 0.3);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: #a67c52;
+            border: 1.5px solid #a67c52;
+        }
+
+        .btn-secondary:hover {
+            color: #ffffff;
+            background-color: #a67c52;
+        }
+
+        /* RESPONSIVITAS PERANGKAT (MEDIA QUERIES) */
+        @media (max-width: 992px) {
+            .navbar {
+                padding: 15px 4%;
+            }
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            html {
+                scroll-padding-top: 80px;
+            }
+            .navbar {
+                padding: 15px 20px;
+            }
+            
+            .menu-toggle {
+                display: flex;
+            }
+
+            .nav-menu {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: rgba(27, 58, 36, 0.98);
+                padding: 20px;
+                gap: 20px;
+                border-top: 1px solid rgba(166, 124, 82, 0.2);
+                box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .nav-menu a {
+                font-size: 1rem;
+                width: 100%;
+                text-align: center;
+                padding: 8px 0;
+            }
+
+            /* Hilangkan efek garis bawah di mobile agar tidak merusak tampilan vertikal */
+            .nav-menu a::after {
+                display: none;
+            }
+            .nav-menu a.active {
+                color: #a67c52;
+                font-weight: 700;
+            }
+
+            .hero-section {
+                padding: 120px 20px 60px 20px;
+            }
+
+            .hero-content h1 {
+                font-size: 1.8rem;
+            }
+
+            .description {
+                font-size: 0.95rem;
+            }
+
+            .main-container {
+                margin-top: -20px;
+                padding: 0 15px 60px 15px;
+            }
+
+            .report-section {
+                padding: 25px 20px;
+                border-radius: 16px;
+                margin-bottom: 30px;
+            }
+
+            .stats-grid, .selection-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .stat-number {
+                font-size: 2.8rem;
+            }
+
+            .card {
+                padding: 25px 20px;
+                border-radius: 16px;
+            }
+        }
+
+        /* FOOTER DEKORATIF */
+        footer {
+            background-color: #112216;
+            padding: 40px 20px;
+            text-align: center;
+            color: #8c968e;
+            font-size: 0.85rem;
+            border-top: 3px solid #a67c52;
+            margin-top: auto;
+        }
+
+        footer p {
+            max-width: 600px;
+            margin: 0 auto;
+            letter-spacing: 0.3px;
+        }
+
+        footer .credits {
+            color: #ffffff;
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="brand-logo">
+            <i class="fa-solid fa-map-marked-alt"></i> WebGIS <span>Pendidikan</span>
+        </div>
+        
+        <button class="menu-toggle" id="mobile-menu" aria-label="Toggle Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <ul class="nav-menu" id="nav-list">
+            <li><a href="#beranda" class="nav-link active">Beranda</a></li>
+            <li><a href="#latar-belakang-section" class="nav-link">Latar Belakang</a></li>
+            <li><a href="#metodologi-section" class="nav-link">Metodologi</a></li>
+            <li><a href="#dashboard-section" class="nav-link">Sebaran Sekolah</a></li>
+            <li><a href="#peta-section" class="nav-link">Peta Interaktif</a></li>
+            <li><a href="#analisis-section" class="nav-link">Analisis</a></li>
+        </ul>
+    </nav>
+
+    <header id="beranda" class="hero-section target-section">
+        <div class="hero-content">
+            <span class="sub-tag"><i class="fa-solid fa-compass-drafting"></i> Spasial Kota Semarang</span>
+            <h1>Analisis Probabilitas & Keterjangkauan <br><span>Sarana Pendidikan Kota Semarang</span></h1>
+            <p class="description">
+                Portal Sistem Informasi Geografis profesional untuk mengevaluasi parameter sebaran, keterjangkauan mobilitas, dan pemerataan fasilitas pendidikan berbasis analisis spasial terpadu.
+            </p>
+        </div>
+    </header>
+
+    <div class="main-container">
+        
+        <div class="report-section">
+            
+            <div id="latar-belakang-section" class="report-block target-section">
+                <h3><i class="fa-solid fa-feather-pointed"></i> Latar Belakang Wilayah</h3>
+                <p>
+                    Akses terhadap fasilitas pendidikan merupakan indikator penting kualitas hidup dan pemerataan pembangunan. Namun, distribusi fasilitas yang tidak merata dapat menimbulkan kesenjangan pendidikan. Kota Semarang menghadapi tantangan dalam pemerataan akses SMA/SMK akibat pertumbuhan penduduk, perkembangan permukiman, dan perubahan penggunaan lahan. Penelitian ini menggunakan Spatial Network Analysis dengan jangkauan 3.000 meter untuk mengukur aksesibilitas berdasarkan jaringan jalan serta Metode Huff Gravity untuk menganalisis daya tarik dan probabilitas pemilihan sekolah berdasarkan kapasitas dan akreditasi. Hasilnya diharapkan dapat menjadi dasar penyusunan kebijakan pendidikan yang lebih efektif dan berkelanjutan.
+                </p>
+            </div>
+
+            <div id="metodologi-section" class="report-block target-section">
+                <h3><i class="fa-solid fa-layer-group"></i> Metodologi Pemrosesan Spasial</h3>
+                <p>
+                    Penelitian spasial ini memanfaatkan kapabilitas komputasi Sistem Informasi Geografis (SIG) dengan menerapkan alur pemrosesan data terstruktur untuk menghasilkan model ketetapan analisis yang komprehensif:
+                </p>
+                
+                <div class="methodology-flowchart">
+                    <div class="flow-step main-data">DATA</div>
+                    <div class="flow-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+                    
+                    <div class="flow-step">Data Cleaning</div>
+                    <div class="flow-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+                    
+                    <div class="flow-step">Metodologi</div>
+                    <div class="flow-split-arrows">
+                        <i class="fa-solid fa-caret-right" style="transform: translateY(-12px);"></i>
+                        <i class="fa-solid fa-caret-right" style="transform: translateY(-4px);"></i>
+                        <i class="fa-solid fa-caret-right" style="transform: translateY(4px);"></i>
+                        <i class="fa-solid fa-caret-right" style="transform: translateY(12px);"></i>
+                    </div>
+                    
+                    <div class="flow-step-branches">
+                        <div class="flow-branch">Dasymetric Numeric</div>
+                        <div class="flow-branch">Huff Model</div>
+                        <div class="flow-branch">Urban Network Analysis (UNA)</div>
+                        <div class="flow-branch">OD Cost Matrix</div>
+                    </div>
+                    
+                    <div class="flow-split-arrows">
+                        <i class="fa-solid fa-caret-right" style="transform: translateY(-12px) rotate(180deg);"></i>
+                        <i class="fa-solid fa-caret-right" style="transform: translateY(-4px) rotate(180deg);"></i>
+                        <i class="fa-solid fa-caret-right" style="transform: translateY(4px) rotate(180deg);"></i>
+                        <i class="fa-solid fa-caret-right" style="transform: translateY(12px) rotate(180deg);"></i>
+                    </div>
+                    <div class="flow-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+                    
+                    <div class="flow-step">Normalisasi</div>
+                    <div class="flow-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+                    
+                    <div class="flow-step" style="white-space: normal; width: 130px;">Gabung menjadi satu indeks</div>
+                    <div class="flow-split-arrows">
+                        <i class="fa-solid fa-caret-right" style="transform: translateY(-8px);"></i>
+                        <i class="fa-solid fa-caret-right" style="transform: translateY(8px);"></i>
+                    </div>
+                    
+                    <div class="flow-step-branches">
+                        <div class="flow-branch" style="background: #e9e0d2;">Halte Eksisting</div>
+                        <div class="flow-branch" style="background: #a67c52; color: #fff;">Rekomendasi</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div id="dashboard-section" class="stats-section-title target-section">Dashboard Sebaran Sarana Pendidikan</div>
+        <div class="stats-grid">
+            
+            <a href="https://rheza10.github.io/SMA-K-Negeri-Kota-Semarang/#13" class="stat-card-link">
+                <div class="stat-card">
+                    <div class="stat-card-icon"><i class="fa-solid fa-landmark-flag"></i></div>
+                    <div class="stat-number">17</div>
+                    <div class="stat-label">Total SMA / SMK Negeri</div>
+                </div>
+            </a>
+
+            <a href="https://rheza10.github.io/SMAN-K-Swasta-Kota-Semarang/#12" class="stat-card-link">
+                <div class="stat-card">
+                    <div class="stat-card-icon"><i class="fa-solid fa-school-flag"></i></div>
+                    <div class="stat-number">56</div>
+                    <div class="stat-label">Total SMA / SMK Swasta</div>
+                </div>
+            </a>
+
+        </div>
+
+        <div id="peta-section" class="stats-section-title target-section">Eksplorasi Peta Interaktif</div>
+        
+        <div class="selection-grid">
+            <div class="card">
+                <div class="card-top-content">
+                    <div class="card-icon"><i class="fa-solid fa-map-location-dot"></i></div>
+                    <h2>Probabilitas Sarana Pendidikan</h2>
+                    <p>Analis dari kuota sekolah, status sekolah, akreditas, permukiman.</p>
+                </div>
+                <div class="btn-group">
+                    <a href="#peta-probabilitas" class="btn btn-primary">
+                        <i class="fa-solid fa-circle-nodes"></i> Buka Peta probabilitas
+                    </a>
+                    <a href="#metodologi-section" class="btn btn-secondary">
+                        <i class="fa-solid fa-arrow-right-to-bracket"></i> Tinjau Metode
+                    </a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-top-content">
+                    <div class="card-icon"><i class="fa-solid fa-hand-holding-dollar"></i></div>
+                    <h2>Keterjangkauan Sarana Pendidikan</h2>
+                    <p>Jangkauan pelayanan pendidikan melalui Social Network Analyst berdasarkan jaringan jalan dengan jangkauan cakupan radius maksimal 3.000 meter mengacu pada SNI 03-1733-2004.</p>
+                </div>
+                <div class="btn-group">
+                    <a href="#peta-keterjangkauan" class="btn btn-primary">
+                        <i class="fa-solid fa-sliders"></i> Buka Peta Keterjangkauan
+                    </a>
+                    <a href="#metodologi-section" class="btn btn-secondary">
+                        <i class="fa-solid fa-arrow-right-to-bracket"></i> Tinjau Metode
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div id="analisis-section" class="report-section target-section">
+            
+            <div class="report-block">
+                <h3><i class="fa-solid fa-chart-pie"></i> Kesimpulan Analisis Spasial</h3>
+                <p>
+                    Berdasarkan hasil pemetaan spasial, dapat disimpulkan bahwa wilayah pusat Kota Semarang memiliki tingkat aksesibilitas dan keterjangkauan sarana pendidikan yang sangat tinggi. Sebaliknya, wilayah pinggiran kota masih menghadapi tantangan berupa keterbatasan pilihan sekolah publik, persebaran lokasi sarana yang tidak merata, serta jarak tempuh yang melebihi radius pelayanan ideal. Akibatnya, timbul ketimpangan aksesibilitas spasial antar-kecamatan yang perlu segera diintervensi oleh kebijakan zonasi dan pemerataan infrastruktur.
+                </p>
+            </div>
+
+            <div class="report-block">
+                <h3><i class="fa-solid fa-lightbulb"></i> Rekomendasi Kebijakan Perencanaan</h3>
+                <p>
+                    Sebagai upaya mengoptimalkan pelayanan sarana pendidikan di Kota Semarang, dirumuskan rekomendasi berupa prioritas pembangunan ruang kelas baru (RKB) atau sekolah baru khusus di kawasan teridentifikasi <i>blank spot</i> tinggi. Selain itu, diperlukan pemetaan rute transportasi sekolah gratis yang terintegrasi, serta pemberian insentif atau beasiswa silang guna memperkecil jurang disparitas keterjangkauan ekonomi antara sarana pendidikan negeri dan swasta.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+    <footer>
+        <p class="credits">RHEZA GANTENG BANGETTTTTTTTTT</p>
+        <p>Laboratorium Pengembangan GIS & Perencanaan Wilayah dan Kota | &copy; 2026</p>
+    </footer>
+
+    <script>
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navList = document.getElementById('nav-list');
+        const navLinks = document.querySelectorAll('.nav-link');
+        const sections = document.querySelectorAll('.target-section');
+
+        // 1. Fungsi Toggle Menu Mobile
+        mobileMenu.addEventListener('click', () => {
+            navList.classList.toggle('active');
+        });
+
+        // 2. Fungsi Klik Menu: Garis Kuning Pindah Saat Diklik
+        navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                // Hapus class active dari semua menu
+                navLinks.forEach(item => item.classList.remove('active'));
+                // Tambahkan class active ke menu yang baru saja diklik
+                this.classList.add('active');
+                
+                // Tutup menu mobile jika sedang terbuka
+                navList.classList.remove('active');
+            });
+        });
+
+        // 3. Fungsi Otomatis: Garis Kuning Mengikuti Posisi Layar saat di-Scroll
+        window.addEventListener('scroll', () => {
+            let currentSectionId = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                // Mendeteksi section mana yang paling banyak terlihat di layar saat ini
+                if (pageYOffset >= (sectionTop - 150)) {
+                    currentSectionId = section.getAttribute('id');
+                }
+            });
+
+            if (currentSectionId) {
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${currentSectionId}`) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
