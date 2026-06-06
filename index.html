@@ -1,3 +1,8 @@
+Berikut adalah pembaruan kode HTML Anda. Bagian metodologi telah disesuaikan agar menampilkan diagram alir proses (flowchart) interaktif yang meniru visual struktur metodologi dari gambar yang Anda kirimkan, lengkap dengan desain kartu modern yang selaras dengan tema hijau-emas situs Anda.
+
+Anda dapat langsung menyalin keseluruhan kode di bawah ini:
+
+```html
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -223,28 +228,71 @@
             text-align: justify;
         }
 
-        .report-block ul {
-            margin-top: 15px;
-            margin-left: 15px;
-            list-style: none;
+        /* VISUAL FLOWCHART METODOLOGI (Sesuai Gambar Referensi) */
+        .methodology-flowchart {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 35px;
+            padding: 20px 10px;
+            background: #faf7f2;
+            border-radius: 16px;
+            border: 1px dashed rgba(166, 124, 82, 0.25);
+            overflow-x: auto;
         }
 
-        .report-block li {
-            margin-bottom: 12px;
-            color: #524f4c;
-            font-size: 0.98rem;
+        .flow-step {
+            background: #1b3a24;
+            color: #ffffff;
+            padding: 12px 20px;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            text-align: center;
+            min-width: 110px;
+            box-shadow: 0 4px 10px rgba(27, 58, 36, 0.15);
+            white-space: nowrap;
+        }
+
+        .flow-step.main-data {
+            background: #a67c52;
+            border-radius: 20px;
+        }
+
+        .flow-step-branches {
             display: flex;
-            align-items: flex-start;
+            flex-direction: column;
             gap: 10px;
         }
 
-        .report-block li::before {
-            content: "\f00c";
-            font-family: "Font Awesome 6 Free";
-            font-weight: 900;
+        .flow-branch {
+            background: #ffffff;
+            color: #1b3a24;
+            border: 1.5px solid #1b3a24;
+            padding: 10px 15px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.8rem;
+            text-align: center;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+            white-space: nowrap;
+        }
+
+        .flow-arrow {
             color: #a67c52;
-            font-size: 0.85rem;
-            margin-top: 4px;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .flow-split-arrows {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 25px;
+            color: #a67c52;
+            font-size: 0.9rem;
         }
 
         /* SECTIONS GENERAL TITLE */
@@ -465,7 +513,7 @@
                 padding: 15px 20px;
             }
             .nav-menu {
-                display: none; /* Menyederhanakan tampilan mobile */
+                display: none;
             }
             .hero-section {
                 padding: 130px 20px 80px 20px;
@@ -475,6 +523,9 @@
             }
             .report-section {
                 padding: 30px 20px;
+            }
+            .methodology-flowchart {
+                justify-content: flex-start;
             }
         }
 
@@ -544,13 +595,54 @@
             <div id="metodologi-section" class="report-block">
                 <h3><i class="fa-solid fa-layer-group"></i> Metodologi Pemrosesan Spasial</h3>
                 <p>
-                    Penelitian spasial ini memanfaatkan kapabilitas komputasi Sistem Informasi Geografis (SIG) dengan menerapkan dua metode utama untuk memperoleh hasil analisis yang presisi:
+                    Penelitian spasial ini memanfaatkan kapabilitas komputasi Sistem Informasi Geografis (SIG) dengan menerapkan alur pemrosesan data terstruktur untuk menghasilkan model ketetapan analisis yang komprehensif:
                 </p>
-                <ul>
-                    <li><strong>Analisis Network Analysis (Service Area):</strong> Memodelkan batas cakupan jangkauan fisik riil sarana pendidikan berdasarkan parameter infrastruktur jaringan jalan eksis.</li>
-                    <li><strong>Analisis Buffer & Overlay Spasial:</strong> Mengidentifikasi zona tumpang tindih serta memetakan wilayah kritis yang mengalami fenomena <i>blank spot</i> pelayanan.</li>
-                </ul>
-            </div>
+                
+                <div class="methodology-flowchart">
+                    <div class="flow-step main-data">DATA</div>
+                    <div class="flow-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+                    
+                    <div class="flow-step">Data Cleaning</div>
+                    <div class="flow-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+                    
+                    <div class="flow-step">Metodologi</div>
+                    <div class="flow-split-arrows">
+                        <i class="fa-solid fa-caret-right" style="transform: translateY(-12px);"></i>
+                        <i class="fa-solid fa-caret-right" style="transform: translateY(-4px);"></i>
+                        <i class="fa-solid fa-caret-right" style="transform: translateY(4px);"></i>
+                        <i class="fa-solid fa-caret-right" style="transform: translateY(12px);"></i>
+                    </div>
+                    
+                    <div class="flow-step-branches">
+                        <div class="flow-branch">Dasymetric Numeric</div>
+                        <div class="flow-branch">Huff Model</div>
+                        <div class="flow-branch">Urban Network Analysis (UNA)</div>
+                        <div class="flow-branch">OD Cost Matrix</div>
+                    </div>
+                    
+                    <div class="flow-split-arrows">
+                        <i class="fa-solid fa-caret-right" style="transform: translateY(-12px) rotate(180deg);"></i>
+                        <i class="fa-solid fa-caret-right" style="transform: translateY(-4px) rotate(180deg);"></i>
+                        <i class="fa-solid fa-caret-right" style="transform: translateY(4px) rotate(180deg);"></i>
+                        <i class="fa-solid fa-caret-right" style="transform: translateY(12px) rotate(180deg);"></i>
+                    </div>
+                    <div class="flow-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+                    
+                    <div class="flow-step">Normalisasi</div>
+                    <div class="flow-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+                    
+                    <div class="flow-step" style="white-space: normal; width: 130px;">Gabung menjadi satu indeks</div>
+                    <div class="flow-split-arrows">
+                        <i class="fa-solid fa-caret-right" style="transform: translateY(-8px);"></i>
+                        <i class="fa-solid fa-caret-right" style="transform: translateY(8px);"></i>
+                    </div>
+                    
+                    <div class="flow-step-branches">
+                        <div class="flow-branch" style="background: #e9e0d2;">Halte Eksisting</div>
+                        <div class="flow-branch" style="background: #a67c52; color: #fff;">Rekomendasi</div>
+                    </div>
+                </div>
+                </div>
 
         </div>
 
@@ -638,3 +730,5 @@
 
 </body>
 </html>
+
+```
