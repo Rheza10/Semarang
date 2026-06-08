@@ -265,12 +265,12 @@
             font-weight: 700;
             font-size: 0.85rem;
             text-align: center;
-            width: max-content; /* Lebar otomatis mengikuti isi text */
+            width: max-content;
             min-width: 120px;
             box-shadow: 0 4px 10px rgba(27, 58, 36, 0.15);
-            white-space: nowrap; /* Memastikan teks tidak terpotong ke bawah */
+            white-space: nowrap;
             line-height: 1.4;
-            flex-shrink: 0; /* Mencegah kotak menyusut atau gepeng */
+            flex-shrink: 0;
         }
 
         .flow-step.main-data {
@@ -296,7 +296,7 @@
             font-size: 1.1rem;
             display: flex;
             align-items: center;
-            flex-shrink: 0; /* Mencegah panah mengecil */
+            flex-shrink: 0;
         }
 
         /* SECTIONS GENERAL TITLE */
@@ -321,11 +321,18 @@
             border-radius: 4px;
         }
 
-        /* DASHBOARD GRID STATISTIK */
+        /* DASHBOARD GRID STATISTIK & PARAMETER */
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .parameter-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
             margin-bottom: 40px;
         }
 
@@ -392,6 +399,13 @@
             line-height: 1;
             margin-bottom: 10px;
             letter-spacing: -1px;
+        }
+
+        .parameter-label {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #1b3a24;
+            margin-top: 10px;
         }
 
         .stat-label {
@@ -496,6 +510,9 @@
             .hero-content h1 {
                 font-size: 2.2rem;
             }
+            .parameter-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
 
         @media (max-width: 768px) {
@@ -566,7 +583,7 @@
                 margin-bottom: 30px;
             }
 
-            .stats-grid {
+            .stats-grid, .parameter-grid {
                 grid-template-columns: 1fr;
                 gap: 20px;
             }
@@ -625,6 +642,7 @@
             <li><a href="#latar-belakang-section" class="nav-link">Latar Belakang</a></li>
             <li><a href="#metodologi-section" class="nav-link">Metodologi</a></li>
             <li><a href="#dashboard-section" class="nav-link">Sebaran Sekolah</a></li>
+            <li><a href="#parameter-section" class="nav-link">Parameter</a></li>
             <li><a href="#peta-section" class="nav-link">Peta Interaktif</a></li>
             <li><a href="#analisis-section" class="nav-link">Analisis</a></li>
         </ul>
@@ -685,7 +703,7 @@
         <div id="dashboard-section" class="stats-section-title target-section">Dashboard Sebaran Sarana Pendidikan</div>
         <div class="stats-grid">
             
-            <a href="https://rheza10.github.io/SMAN-K-NEGERI/#11/-6.9919/110.4085" class="stat-card-link">
+            <a href="https://rheza10.github.io/SMAN-K-NEGERI/#11/-6.9919/110.4085" class="stat-card-link" target="_blank">
                 <div class="stat-card">
                     <div class="stat-card-icon"><i class="fa-solid fa-landmark-flag"></i></div>
                     <div class="stat-number">17</div>
@@ -693,11 +711,50 @@
                 </div>
             </a>
 
-            <a href="https://rheza10.github.io/SMAN-K-SWASTA/#11/-6.9060/110.3978" class="stat-card-link">
+            <a href="https://rheza10.github.io/SMAN-K-SWASTA/#11/-6.9060/110.3978" class="stat-card-link" target="_blank">
                 <div class="stat-card">
                     <div class="stat-card-icon"><i class="fa-solid fa-school-flag"></i></div>
                     <div class="stat-number">56</div>
                     <div class="stat-label">Total SMA / SMK Swasta</div>
+                </div>
+            </a>
+
+        </div>
+
+        <!-- SEKSI DASHBOARD PARAMETER YANG BISA DIBERIKAN LINK PETA -->
+        <div id="parameter-section" class="stats-section-title target-section">Dashboard Parameter</div>
+        <div class="parameter-grid">
+            
+            <!-- Silakan ganti href="#" di bawah ini dengan link peta Anda -->
+            <a href="#" class="stat-card-link" target="_blank">
+                <div class="stat-card">
+                    <div class="stat-card-icon"><i class="fa-solid fa-users-rectangle"></i></div>
+                    <div class="parameter-label">Peta Daya Tampung</div>
+                    <div class="stat-label" style="font-weight: 400; font-size: 0.85rem; margin-top: 5px;">Klik untuk melihat peta kuota</div>
+                </div>
+            </a>
+
+            <a href="#" class="stat-card-link" target="_blank">
+                <div class="stat-card">
+                    <div class="stat-card-icon"><i class="fa-solid fa-building-shield"></i></div>
+                    <div class="parameter-label">Peta Status Sekolah</div>
+                    <div class="stat-label" style="font-weight: 400; font-size: 0.85rem; margin-top: 5px;">Klik untuk melihat sebaran status</div>
+                </div>
+            </a>
+
+            <a href="#" class="stat-card-link" target="_blank">
+                <div class="stat-card">
+                    <div class="stat-card-icon"><i class="fa-solid fa-route"></i></div>
+                    <div class="parameter-label">Peta Jarak Permukiman</div>
+                    <div class="stat-label" style="font-weight: 400; font-size: 0.85rem; margin-top: 5px;">Klik untuk melihat peta aksesibilitas</div>
+                </div>
+            </a>
+
+            <a href="#" class="stat-card-link" target="_blank">
+                <div class="stat-card">
+                    <div class="stat-card-icon"><i class="fa-solid fa-award"></i></div>
+                    <div class="parameter-label">Peta Akreditasi Sekolah</div>
+                    <div class="stat-label" style="font-weight: 400; font-size: 0.85rem; margin-top: 5px;">Klik untuk melihat tingkat mutu</div>
                 </div>
             </a>
 
@@ -713,7 +770,7 @@
                     <p>Analisis spasial interaksi wilayah menggunakan Huff Model Gravity berdasarkan parameter kuota kapasitas tampung sekolah, status sekolah, tingkat akreditasi, serta kedekatannya dengan zonasi permukiman penduduk.</p>
                 </div>
                 <div class="btn-group">
-                    <a href="https://farahrahmah27-source.github.io/Analisis-Probabilitas-Huff-Model/#13/-6.9741/110.4692" class="btn btn-primary">
+                    <a href="https://farahrahmah27-source.github.io/Analisis-Probabilitas-Huff-Model/#13/-6.9741/110.4692" class="btn btn-primary" target="_blank">
                         <i class="fa-solid fa-circle-nodes"></i> Buka Peta Probabilitas
                     </a>
                 </div>
@@ -732,7 +789,7 @@
             <div class="report-block">
                 <h3><i class="fa-solid fa-lightbulb"></i> Rekomendasi Kebijakan Perencanaan</h3>
                 <p>
-                    Sebagai upaya mengoptimalkan distribusi peluang pelayanan sarana pendidikan di Kota Semarang, direkomendasikan penguatan kapabilitas daya tarik mutu fasilitas sekolah pinggiran serta intervensi kebijakan kuota pengaturan zonasi. Hal ini penting guna menyeimbangkan nilai probabilitas pemilihan sekolah agar tidak menumpuk di zona-zona pusat perkotaan saja, sekaligus mewujudkan pemerataan ruang pendidikan yang inklusif.
+                   Sebagai upaya mengoptimalkan distribusi peluang pelayanan sarana pendidikan di Kota Semarang, direkomendasikan penguatan kapabilitas daya tarik mutu fasilitas sekolah pinggiran serta intervensi kebijakan kuota pengaturan zonasi. Hal ini penting guna menyeimbangkan nilai probabilitas pemilihan sekolah agar tidak menumpuk di zona-zona pusat perkotaan saja, sekaligus mewujudkan pemerataan ruang pendidikan yang inklusif.
                 </p>
             </div>
 
