@@ -246,7 +246,7 @@
             text-align: justify;
         }
 
-        /* VISUAL FLOWCHART METODOLOGI - PERBAIKAN DI SINI */
+        /* VISUAL FLOWCHART METODOLOGI */
         .methodology-flowchart {
             display: flex;
             align-items: center;
@@ -269,9 +269,9 @@
             font-weight: 700;
             font-size: 0.85rem;
             text-align: center;
-            min-width: 140px; /* Ditambah sedikit agar lebih lega */
+            min-width: 140px;
             box-shadow: 0 4px 10px rgba(27, 58, 36, 0.15);
-            white-space: normal; /* DIUBAH: Izinkan teks turun ke bawah jika terlalu panjang */
+            white-space: normal;
             line-height: 1.4;
         }
 
@@ -296,7 +296,7 @@
             font-size: 0.8rem;
             text-align: center;
             box-shadow: 0 2px 6px rgba(0,0,0,0.03);
-            white-space: normal; /* DIUBAH: Agar teks panjang di dalam cabang rapi ke bawah */
+            white-space: normal;
             min-width: 160px;
             line-height: 1.3;
         }
@@ -306,7 +306,7 @@
             font-size: 1.1rem;
             display: flex;
             align-items: center;
-            flex-shrink: 0; /* Mencegah panah gepeng/mengecil */
+            flex-shrink: 0;
         }
 
         .flow-split-arrows {
@@ -481,7 +481,8 @@
         .btn-group {
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            gap: 0; /* Mengnolkan gap karena hanya tersisa satu tombol utama */
+            margin-top: auto; /* Memaksa tombol selalu presisi di dasar batas kartu */
         }
 
         .btn {
@@ -506,17 +507,6 @@
         .btn-primary:hover {
             background-color: #122818;
             box-shadow: 0 6px 20px rgba(27, 58, 36, 0.3);
-        }
-
-        .btn-secondary {
-            background-color: transparent;
-            color: #a67c52;
-            border: 1.5px solid #a67c52;
-        }
-
-        .btn-secondary:hover {
-            color: #ffffff;
-            background-color: #a67c52;
         }
 
         /* RESPONSIVITAS PERANGKAT (MEDIA QUERIES) */
@@ -768,24 +758,18 @@
                     <a href="https://farahrahmah27-source.github.io/Analisis-Probabilitas-Huff-Model/#13/-6.9741/110.4692" class="btn btn-primary">
                         <i class="fa-solid fa-circle-nodes"></i> Buka Peta probabilitas
                     </a>
-                    <a href="#metodologi-section" class="btn btn-secondary">
-                        <i class="fa-solid fa-arrow-right-to-bracket"></i> Tinjau Metode
-                    </a>
                 </div>
             </div>
 
             <div class="card">
                 <div class="card-top-content">
-                    <div class="card-icon"><i class="fa-solid fa-hand-holding-dollar"></i></div>
+                    <div class="card-icon"><i class="fa-solid fa-route"></i></div>
                     <h2>Keterjangkauan Sarana Pendidikan</h2>
                     <p>Jangkauan pelayanan pendidikan melalui Social Network Analyst berdasarkan jaringan jalan dengan jangkauan cakupan radius maksimal 3.000 meter mengacu pada SNI 03-1733-2004.</p>
                 </div>
                 <div class="btn-group">
                     <a href="#peta-keterjangkauan" class="btn btn-primary">
-                        <i class="fa-solid fa-sliders"></i> Buka Peta Keterjangkauan
-                    </a>
-                    <a href="#metodologi-section" class="btn btn-secondary">
-                        <i class="fa-solid fa-arrow-right-to-bracket"></i> Tinjau Metode
+                        <i class="fa-solid fa-map-marked-alt"></i> Buka Peta Keterjangkauan
                     </a>
                 </div>
             </div>
