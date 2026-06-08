@@ -19,7 +19,7 @@
 
         html {
             scroll-behavior: smooth;
-            scroll-padding-top: 90px; /* Jarak pas saat scroll ke section */
+            scroll-padding-top: 90px;
         }
 
         body {
@@ -68,7 +68,6 @@
             font-weight: 400;
         }
 
-        /* Menu Navigasi */
         .nav-menu {
             display: flex;
             list-style: none;
@@ -86,19 +85,17 @@
             padding: 6px 0;
         }
 
-        /* Efek garis bawah dinamis menggunakan class .active */
         .nav-menu a::after {
             content: '';
             position: absolute;
             bottom: 0;
             left: 0;
             width: 0;
-            height: 2.5px; /* Ketebalan garis */
-            background-color: #a67c52; /* Warna kuning/emas kayu */
+            height: 2.5px;
+            background-color: #a67c52;
             transition: width 0.3s ease;
         }
 
-        /* Hanya muncul jika menu memiliki class active */
         .nav-menu a.active::after {
             width: 100%;
         }
@@ -107,7 +104,6 @@
             color: #ffffff;
         }
 
-        /* Tombol Hamburger Menu untuk Mobile */
         .menu-toggle {
             display: none;
             flex-direction: column;
@@ -202,7 +198,7 @@
             z-index: 10;
         }
 
-        /* REPORT / DOKUMENTASI BOX */
+        /* REPORT SECTION */
         .report-section {
             text-align: left;
             background: #ffffff;
@@ -271,7 +267,7 @@
             text-align: center;
             min-width: 140px;
             box-shadow: 0 4px 10px rgba(27, 58, 36, 0.15);
-            white-space: normal;
+            white-space: nowrap;
             line-height: 1.4;
         }
 
@@ -280,25 +276,17 @@
             border-radius: 20px;
         }
 
-        .flow-step-branches {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .flow-branch {
+        .flow-step.main-methodology {
             background: #ffffff;
             color: #1b3a24;
             border: 1.5px solid #1b3a24;
-            padding: 10px 15px;
-            border-radius: 8px;
-            font-weight: 600;
-            font-size: 0.8rem;
-            text-align: center;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.03);
-            white-space: normal;
-            min-width: 160px;
-            line-height: 1.3;
+            font-weight: 700;
+        }
+
+        .flow-step.main-output {
+            background: #e9e0d2;
+            color: #1b3a24;
+            border-radius: 20px;
         }
 
         .flow-arrow {
@@ -306,16 +294,6 @@
             font-size: 1.1rem;
             display: flex;
             align-items: center;
-            flex-shrink: 0;
-        }
-
-        .flow-split-arrows {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            gap: 25px;
-            color: #a67c52;
-            font-size: 0.9rem;
             flex-shrink: 0;
         }
 
@@ -423,7 +401,7 @@
         /* GRID PILIHAN PETA INTERAKTIF */
         .selection-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: 1fr;
             gap: 30px;
             margin-bottom: 40px;
         }
@@ -477,12 +455,11 @@
             margin-bottom: 30px;
         }
 
-        /* BUTTONS & ACTIONS */
         .btn-group {
             display: flex;
             flex-direction: column;
-            gap: 0; /* Mengnolkan gap karena hanya tersisa satu tombol utama */
-            margin-top: auto; /* Memaksa tombol selalu presisi di dasar batas kartu */
+            gap: 0;
+            margin-top: auto;
         }
 
         .btn {
@@ -509,7 +486,7 @@
             box-shadow: 0 6px 20px rgba(27, 58, 36, 0.3);
         }
 
-        /* RESPONSIVITAS PERANGKAT (MEDIA QUERIES) */
+        /* RESPONSIVITAS PERANGKAT */
         @media (max-width: 992px) {
             .navbar {
                 padding: 15px 4%;
@@ -556,7 +533,6 @@
                 padding: 8px 0;
             }
 
-            /* Hilangkan efek garis bawah di mobile agar tidak merusak tampilan vertikal */
             .nav-menu a::after {
                 display: none;
             }
@@ -588,7 +564,7 @@
                 margin-bottom: 30px;
             }
 
-            .stats-grid, .selection-grid {
+            .stats-grid {
                 grid-template-columns: 1fr;
                 gap: 20px;
             }
@@ -655,9 +631,9 @@
     <header id="beranda" class="hero-section target-section">
         <div class="hero-content">
             <span class="sub-tag"><i class="fa-solid fa-compass-drafting"></i> Spasial Kota Semarang</span>
-            <h1>Analisis Probabilitas & Keterjangkauan <br><span>Sarana Pendidikan Kota Semarang</span></h1>
+            <h1>Analisis Probabilitas Pemilihan <br><span>Sarana Pendidikan Kota Semarang</span></h1>
             <p class="description">
-                Portal Sistem Informasi Geografis profesional untuk mengevaluasi parameter sebaran, keterjangkauan mobilitas, dan pemerataan fasilitas pendidikan berbasis analisis spasial terpadu.
+                Portal Sistem Informasi Geografis profesional untuk mengevaluasi parameter sebaran, daya tarik, dan tingkat probabilitas pemilihan fasilitas pendidikan berbasis analisis spasial terpadu Huff Model Gravity.
             </p>
         </div>
     </header>
@@ -669,14 +645,14 @@
             <div id="latar-belakang-section" class="report-block target-section">
                 <h3><i class="fa-solid fa-feather-pointed"></i> Latar Belakang Wilayah</h3>
                 <p>
-                    Akses terhadap fasilitas pendidikan merupakan indikator penting kualitas hidup dan pemerataan pembangunan. Namun, distribusi fasilitas yang tidak merata dapat menimbulkan kesenjangan pendidikan. Kota Semarang menghadapi tantangan dalam pemerataan akses SMA/SMK akibat pertumbuhan penduduk, perkembangan permukiman, dan perubahan penggunaan lahan. Penelitian ini menggunakan Spatial Network Analysis dengan jangkauan 3.000 meter untuk mengukur aksesibilitas berdasarkan jaringan jalan serta Metode Huff Gravity untuk menganalisis daya tarik dan probabilitas pemilihan sekolah berdasarkan kapasitas dan akreditasi. Hasilnya diharapkan dapat menjadi dasar penyusunan kebijakan pendidikan yang lebih efektif dan berkelanjutan.
+                    Akses terhadap fasilitas pendidikan merupakan indikator penting kualitas hidup dan pemerataan pembangunan. Namun, distribusi fasilitas yang tidak merata dapat menimbulkan kesenjangan pendidikan. Kota Semarang menghadapi tantangan dalam pemerataan akses SMA/SMK akibat pertumbuhan penduduk, perkembangan permukiman, dan perubahan penggunaan lahan. Penelitian ini menggunakan Metode Huff Model Gravity untuk menganalisis daya tarik interaksi wilayah spasial dan menghitung nilai probabilitas pemilihan sekolah berdasarkan variabel kapasitas kuota tampung siswa, status, serta tingkat akreditasi sarana pendidikan. Hasil pemodelan ini diharapkan dapat menjadi dasar penyusunan dan optimalisasi kebijakan pemetaan pendidikan yang lebih efektif, terukur, dan berkelanjutan.
                 </p>
             </div>
 
             <div id="metodologi-section" class="report-block target-section">
                 <h3><i class="fa-solid fa-layer-group"></i> Metodologi Pemrosesan Spasial</h3>
                 <p>
-                    Penelitian spasial ini memanfaatkan kapabilitas komputasi Sistem Informasi Geografis (SIG) dengan menerapkan alur pemrosesan data terstruktur untuk menghasilkan model ketetapan analisis yang komprehensif:
+                    Penelitian spasial ini memanfaatkan kapabilitas komputasi Sistem Informasi Geografis (SIG) dengan menerapkan alur pemrosesan data linier terstruktur untuk menghasilkan model ketetapan analisis Huff Gravity yang komprehensif:
                 </p>
                 
                 <div class="methodology-flowchart">
@@ -686,21 +662,7 @@
                     <div class="flow-step">Data Cleaning</div>
                     <div class="flow-arrow"><i class="fa-solid fa-arrow-right"></i></div>
                     
-                    <div class="flow-step">Metodologi</div>
-                    <div class="flow-split-arrows">
-                        <i class="fa-solid fa-caret-right" style="transform: translateY(-12px);"></i>
-                        <i class="fa-solid fa-caret-right" style="transform: translateY(12px);"></i>
-                    </div>
-                    
-                    <div class="flow-step-branches">
-                        <div class="flow-branch">Social Network Analysis (SNA)</div>
-                        <div class="flow-branch">Huff Model Gravity</div>
-                    </div>
-                    
-                    <div class="flow-split-arrows">
-                        <i class="fa-solid fa-caret-right" style="transform: translateY(-12px) rotate(180deg);"></i>
-                        <i class="fa-solid fa-caret-right" style="transform: translateY(12px) rotate(180deg);"></i>
-                    </div>
+                    <div class="flow-step main-methodology">Huff Model Gravity</div>
                     <div class="flow-arrow"><i class="fa-solid fa-arrow-right"></i></div>
                     
                     <div class="flow-step">Perhitungan Parameter</div>
@@ -710,15 +672,9 @@
                     <div class="flow-arrow"><i class="fa-solid fa-arrow-right"></i></div>
                     
                     <div class="flow-step">Hasil</div>
-                    <div class="flow-split-arrows">
-                        <i class="fa-solid fa-caret-right" style="transform: translateY(-8px);"></i>
-                        <i class="fa-solid fa-caret-right" style="transform: translateY(8px);"></i>
-                    </div>
+                    <div class="flow-arrow"><i class="fa-solid fa-arrow-right"></i></div>
                     
-                    <div class="flow-step-branches">
-                        <div class="flow-branch" style="background: #e9e0d2;">Probabilitas</div>
-                        <div class="flow-branch" style="background: #a67c52; color: #fff;">Keterjangkauan</div>
-                    </div>
+                    <div class="flow-step main-output">Probabilitas</div>
                 </div>
             </div>
 
@@ -752,24 +708,11 @@
                 <div class="card-top-content">
                     <div class="card-icon"><i class="fa-solid fa-map-location-dot"></i></div>
                     <h2>Probabilitas Sarana Pendidikan</h2>
-                    <p>Analis dari kuota sekolah, status sekolah, akreditas, permukiman.</p>
+                    <p>Analisis spasial interaksi wilayah menggunakan Huff Model Gravity berdasarkan parameter kuota kapasitas tampung sekolah, status sekolah, tingkat akreditasi, serta kedekatannya dengan zonasi permukiman penduduk.</p>
                 </div>
                 <div class="btn-group">
                     <a href="https://farahrahmah27-source.github.io/Analisis-Probabilitas-Huff-Model/#13/-6.9741/110.4692" class="btn btn-primary">
-                        <i class="fa-solid fa-circle-nodes"></i> Buka Peta probabilitas
-                    </a>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="card-top-content">
-                    <div class="card-icon"><i class="fa-solid fa-route"></i></div>
-                    <h2>Keterjangkauan Sarana Pendidikan</h2>
-                    <p>Jangkauan pelayanan pendidikan melalui Social Network Analyst berdasarkan jaringan jalan dengan jangkauan cakupan radius maksimal 3.000 meter mengacu pada SNI 03-1733-2004.</p>
-                </div>
-                <div class="btn-group">
-                    <a href="#peta-keterjangkauan" class="btn btn-primary">
-                        <i class="fa-solid fa-map-marked-alt"></i> Buka Peta Keterjangkauan
+                        <i class="fa-solid fa-circle-nodes"></i> Buka Peta Probabilitas
                     </a>
                 </div>
             </div>
@@ -780,14 +723,14 @@
             <div class="report-block">
                 <h3><i class="fa-solid fa-chart-pie"></i> Kesimpulan Analisis Spasial</h3>
                 <p>
-                    Berdasarkan hasil pemetaan spasial, dapat disimpulkan bahwa wilayah pusat Kota Semarang memiliki tingkat aksesibilitas dan keterjangkauan sarana pendidikan yang sangat tinggi. Sebaliknya, wilayah pinggiran kota masih menghadapi tantangan berupa keterbatasan pilihan sekolah publik, persebaran lokasi sarana yang tidak merata, serta jarak tempuh yang melebihi radius pelayanan ideal. Akibatnya, timbul ketimpangan aksesibilitas spasial antar-kecamatan yang perlu segera diintervensi oleh kebijakan zonasi dan pemerataan infrastruktur.
+                    Berdasarkan hasil pemetaan spasial menggunakan Huff Model Gravity, dapat disimpulkan bahwa probabilitas pemilihan sarana pendidikan terpusat secara signifikan pada wilayah dengan sekolah berkategori akreditasi tinggi dan kapasitas besar. Hal ini memicu variasi tarikan spasial yang timpang antar wilayah kecamatan di Kota Semarang, di mana klaster permukiman padat di pinggiran kota memiliki probabilitas aksesibilitas pemilihan opsi sekolah publik yang lebih rendah akibat faktor jarak matematis ke pusat fasilitas penampung.
                 </p>
             </div>
 
             <div class="report-block">
                 <h3><i class="fa-solid fa-lightbulb"></i> Rekomendasi Kebijakan Perencanaan</h3>
                 <p>
-                    Sebagai upaya mengoptimalkan pelayanan sarana pendidikan di Kota Semarang, dirumuskan rekomendasi berupa prioritas pembangunan ruang kelas baru (RKB) atau sekolah baru khusus di kawasan teridentifikasi <i>blank spot</i> tinggi. Selain itu, diperlukan pemetaan rute transportasi sekolah gratis yang terintegrasi, serta pemberian insentif atau beasiswa silang guna memperkecil jurang disparitas keterjangkauan ekonomi antara sarana pendidikan negeri dan swasta.
+                    Sebagai upaya mengoptimalkan distribusi peluang pelayanan sarana pendidikan di Kota Semarang, direkomendasikan penguatan kapabilitas daya tarik mutu fasilitas sekolah pinggiran serta intervensi kebijakan kuota tampung zonasi lokal. Hal ini penting guna menyeimbangkan nilai probabilitas pemilihan sekolah agar tidak menumpuk di zona-zona pusat perkotaan saja, sekaligus mewujudkan pemerataan ruang pendidikan yang inklusif.
                 </p>
             </div>
 
@@ -811,28 +754,21 @@
             navList.classList.toggle('active');
         });
 
-        // 2. Fungsi Klik Menu: Garis Kuning Pindah Saat Diklik
+        // 2. Fungsi Klik Menu
         navLinks.forEach(link => {
             link.addEventListener('click', function() {
-                // Hapus class active dari semua menu
                 navLinks.forEach(item => item.classList.remove('active'));
-                // Tambahkan class active ke menu yang baru saja diklik
                 this.classList.add('active');
-                
-                // Tutup menu mobile jika sedang terbuka
                 navList.classList.remove('active');
             });
         });
 
-        // 3. Fungsi Otomatis: Garis Kuning Mengikuti Posisi Layar saat di-Scroll
+        // 3. Fungsi Otomatis Scroll Spy
         window.addEventListener('scroll', () => {
             let currentSectionId = '';
             
             sections.forEach(section => {
                 const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                
-                // Mendeteksi section mana yang paling banyak terlihat di layar saat ini
                 if (pageYOffset >= (sectionTop - 150)) {
                     currentSectionId = section.getAttribute('id');
                 }
