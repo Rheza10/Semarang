@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Analisis Sarana Pendidikan Kota Semarang</title>
+    <title>Analisis Probabilitas Kota Semarang</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -242,7 +242,7 @@
             text-align: justify;
         }
 
-        /* VISUAL FLOWCHART METODOLOGI */
+        /* PERBAIKAN VISUAL FLOWCHART METODOLOGI */
         .methodology-flowchart {
             display: flex;
             align-items: center;
@@ -265,10 +265,12 @@
             font-weight: 700;
             font-size: 0.85rem;
             text-align: center;
-            min-width: 140px;
+            width: max-content; /* Lebar otomatis mengikuti isi text */
+            min-width: 120px;
             box-shadow: 0 4px 10px rgba(27, 58, 36, 0.15);
-            white-space: nowrap;
+            white-space: nowrap; /* Memastikan teks tidak terpotong ke bawah */
             line-height: 1.4;
+            flex-shrink: 0; /* Mencegah kotak menyusut atau gepeng */
         }
 
         .flow-step.main-data {
@@ -294,7 +296,7 @@
             font-size: 1.1rem;
             display: flex;
             align-items: center;
-            flex-shrink: 0;
+            flex-shrink: 0; /* Mencegah panah mengecil */
         }
 
         /* SECTIONS GENERAL TITLE */
@@ -631,7 +633,7 @@
     <header id="beranda" class="hero-section target-section">
         <div class="hero-content">
             <span class="sub-tag"><i class="fa-solid fa-compass-drafting"></i> Spasial Kota Semarang</span>
-            <h1>Analisis Probabilitas Pemilihan <br><span>Sarana Pendidikan Kota Semarang</span></h1>
+            <h1>Analisis Probabilitas <br><span>Sarana Pendidikan Kota Semarang</span></h1>
             <p class="description">
                 Portal Sistem Informasi Geografis profesional untuk mengevaluasi parameter sebaran, daya tarik, dan tingkat probabilitas pemilihan fasilitas pendidikan berbasis analisis spasial terpadu Huff Model Gravity.
             </p>
