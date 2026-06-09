@@ -242,7 +242,7 @@
             text-align: justify;
         }
 
-        /* PERBAIKAN VISUAL FLOWCHART METODOLOGI */
+        /* VISUAL FLOWCHART METODOLOGI */
         .methodology-flowchart {
             display: flex;
             align-items: center;
@@ -355,23 +355,13 @@
             height: 100%;
         }
 
-        .stat-card::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 4px;
-            background: linear-gradient(90deg, #1b3a24, #a67c52);
-            opacity: 0;
-            transition: opacity 0.3s ease;
+        /* Modifikasi kartu parameter statis agar tidak terlihat seperti tombol klik */
+        .parameter-grid .stat-card {
+            box-shadow: none;
+            border-color: rgba(166, 124, 82, 0.15);
         }
-
-        .stat-card:hover {
-            transform: translateY(-8px);
-            border-color: rgba(166, 124, 82, 0.3);
-            box-shadow: 0 20px 40px rgba(27, 58, 36, 0.08);
-        }
-
-        .stat-card:hover::before {
-            opacity: 1;
+        .parameter-grid .stat-card::before {
+            display: none;
         }
 
         .stat-card-icon {
@@ -387,7 +377,24 @@
             transition: all 0.3s ease;
         }
 
-        .stat-card:hover .stat-card-icon {
+        /* Hover efek hanya bekerja untuk card yang berupa link aktif */
+        .stat-card-link:hover .stat-card {
+            transform: translateY(-8px);
+            border-color: rgba(166, 124, 82, 0.3);
+            box-shadow: 0 20px 40px rgba(27, 58, 36, 0.08);
+        }
+        .stat-card-link .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 4px;
+            background: linear-gradient(90deg, #1b3a24, #a67c52);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .stat-card-link:hover .stat-card::before {
+            opacity: 1;
+        }
+        .stat-card-link:hover .stat-card-icon {
             background: #1b3a24;
             color: #ffffff;
         }
@@ -724,37 +731,29 @@
         <div id="parameter-section" class="stats-section-title target-section">Dashboard Parameter</div>
         <div class="parameter-grid">
             
-            <a href="#" class="stat-card-link" target="_self">
-                <div class="stat-card">
-                    <div class="stat-card-icon"><i class="fa-solid fa-users-rectangle"></i></div>
-                    <div class="parameter-label">Peta Daya Tampung</div>
-                    <div class="stat-label" style="font-weight: 400; font-size: 0.85rem; margin-top: 5px;">Lihat peta kuota</div>
-                </div>
-            </a>
+            <div class="stat-card">
+                <div class="stat-card-icon"><i class="fa-solid fa-users-rectangle"></i></div>
+                <div class="parameter-label">Peta Daya Tampung</div>
+                <div class="stat-label" style="font-weight: 400; font-size: 0.85rem; margin-top: 5px;">Lihat peta kuota</div>
+            </div>
 
-            <a href="#" class="stat-card-link" target="_self">
-                <div class="stat-card">
-                    <div class="stat-card-icon"><i class="fa-solid fa-building-shield"></i></div>
-                    <div class="parameter-label">Peta Status Sekolah</div>
-                    <div class="stat-label" style="font-weight: 400; font-size: 0.85rem; margin-top: 5px;">Lihat sebaran status</div>
-                </div>
-            </a>
+            <div class="stat-card">
+                <div class="stat-card-icon"><i class="fa-solid fa-building-shield"></i></div>
+                <div class="parameter-label">Peta Status Sekolah</div>
+                <div class="stat-label" style="font-weight: 400; font-size: 0.85rem; margin-top: 5px;">Lihat sebaran status</div>
+            </div>
 
-            <a href="#" class="stat-card-link" target="_self">
-                <div class="stat-card">
-                    <div class="stat-card-icon"><i class="fa-solid fa-route"></i></div>
-                    <div class="parameter-label">Peta Jarak Permukiman</div>
-                    <div class="stat-label" style="font-weight: 400; font-size: 0.85rem; margin-top: 5px;">Lihat peta aksesibilitas</div>
-                </div>
-            </a>
+            <div class="stat-card">
+                <div class="stat-card-icon"><i class="fa-solid fa-route"></i></div>
+                <div class="parameter-label">Peta Jarak Permukiman</div>
+                <div class="stat-label" style="font-weight: 400; font-size: 0.85rem; margin-top: 5px;">Lihat peta aksesibilitas</div>
+            </div>
 
-            <a href="#" class="stat-card-link" target="_self">
-                <div class="stat-card">
-                    <div class="stat-card-icon"><i class="fa-solid fa-award"></i></div>
-                    <div class="parameter-label">Peta Akreditasi Sekolah</div>
-                    <div class="stat-label" style="font-weight: 400; font-size: 0.85rem; margin-top: 5px;">Lihat tingkat mutu</div>
-                </div>
-            </a>
+            <div class="stat-card">
+                <div class="stat-card-icon"><i class="fa-solid fa-award"></i></div>
+                <div class="parameter-label">Peta Akreditasi Sekolah</div>
+                <div class="stat-label" style="font-weight: 400; font-size: 0.85rem; margin-top: 5px;">Lihat tingkat mutu</div>
+            </div>
 
         </div>
 
